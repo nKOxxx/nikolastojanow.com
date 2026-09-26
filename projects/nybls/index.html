@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nybls — a watching layer for video knowledge: capture, transcribe and distill long-form video into structured, timestamped intelligence. Built by Nikola Stojanow." />
+  <title>Nybls | Nikola Stojanow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306080b'/%3E%3Cpath d='M22 76V24h12l32 32V24h12v52H66L34 44v32z' fill='%23d7ff37'/%3E%3Ccircle cx='77' cy='23' r='7' fill='%23ff5a2f'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <style>
+    .status{display:inline-flex;width:fit-content;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:5px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+    .status.dev{border-color:rgba(128,216,255,.4);color:var(--cyan)}
+    .status.dev::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+    .projects-hero{padding:96px 0 64px;border-bottom:1px solid rgba(255,255,255,.09)}
+    .projects-hero h1{font-size:clamp(48px,7vw,96px);line-height:.88;letter-spacing:-.08em;margin:20px 0 26px;max-width:900px}
+    .projects-hero p{max-width:660px;color:#c1cbd0;font-size:19px;margin:0 0 26px}
+    section{padding:88px 0}
+    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:34px}
+    .proof{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);border-radius:16px;padding:15px}
+    .proof strong{display:block;font-size:28px;letter-spacing:-.04em;margin-bottom:4px}
+    .proof span{color:var(--muted);font-size:13px}
+    .feature{border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.04);padding:22px}
+    .feature h4{margin:10px 0 7px;font-size:20px;letter-spacing:-.035em}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+    .date{color:var(--dim);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+    .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:8px}
+    .flow .step{border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:14px;background:rgba(255,255,255,.03)}
+    .flow .step em{display:block;font-style:normal;color:var(--cyan);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin-bottom:8px}
+    .flow .step span{color:var(--muted);font-size:13px}
+    @media(max-width:920px){.stat-row,.stack{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="../../"><span class="brand-mark">N</span><span>NIKOLA STOJANOW</span></a>
+      <div class="nav-links"><a href="../../#work">Work</a><a href="../">Projects</a><a href="../../#research">Research</a><a href="../../#speaking">Speaking</a><a href="../../#about">About</a></div>
+      <a class="nav-cta" href="../../#contact">Start a conversation ↗</a>
+    </nav>
+    <main>
+      <section class="projects-hero">
+        <div class="mini-label">Project / Media intelligence</div>
+        <div class="status dev" style="margin-top:14px">In development · private beta</div>
+        <h1>Nybls</h1>
+        <p>A watching layer for video knowledge. Nybls captures long-form video and livestreams, transcribes them, samples the visual track, and distills hours of footage into structured, timestamped intelligence — blueprints, briefings and quotes you can cite. Search engines index text on a page; Nybls indexes what was actually said and shown.</p>
+        <div class="actions"><a class="button" href="https://nybls.nikola93885.chatgpt.site/" target="_blank" rel="noreferrer">Open Nybls ↗</a><a class="button secondary" href="../">All projects</a></div>
+        <div class="stat-row">
+          <div class="proof"><strong>1/30 s</strong><span>frame sampling cadence across the visual track</span></div>
+          <div class="proof"><strong>100%</strong><span>of distilled claims carry a timestamp receipt</span></div>
+          <div class="proof"><strong>h → min</strong><span>multi-hour streams condensed into read-in-minutes briefs</span></div>
+          <div class="proof"><strong>0</strong><span>cloud lock-in — the pipeline runs local-first</span></div>
+        </div>
+      </section>
+      <section>
+        <div class="section-head"><div><div class="mini-label">01 / The product</div><h2>Watch everything. Cite the moment.</h2></div><p>Built for people who need to know what hundreds of hours of video actually contain.</p></div>
+        <div class="stack">
+          <div class="feature"><span class="date">Capture</span><h4>Long-form in, lean archive out</h4><p>Livestreams, panels, keynotes and course content are auto-captured into lean text + frame archives — the raw video is harvested and released, never hoarded.</p></div>
+          <div class="feature"><span class="date">Transcribe</span><h4>Word-level transcripts</h4><p>Speech-to-text tuned for long sessions, timecoded end to end so every statement can be traced back to the second it was said.</p></div>
+          <div class="feature"><span class="date">Distill</span><h4>Blueprints, not summaries</h4><p>Multi-day archives are distilled into structured blueprints: the claims, the numbers, the slides, the quotes — each linked to the moment it appeared.</p></div>
+          <div class="feature"><span class="date">Receipts</span><h4>Evidence, on demand</h4><p>Every distilled statement can be opened to its timestamp and frame. No hallucinated citations, no "trust me" — the moment itself is the source.</p></div>
+        </div>
+      </section>
+      <section>
+        <div class="section-head"><div><div class="mini-label">02 / The pipeline</div><h2>Five stages, one discipline.</h2></div><p>Every stage feeds the next; nothing reaches the output without a receipt.</p></div>
+        <div class="flow">
+          <div class="step"><em>Capture</em><span>auto-record streams &amp; videos into lean archives</span></div>
+          <div class="step"><em>Transcribe</em><span>timecoded speech-to-text across the whole corpus</span></div>
+          <div class="step"><em>Sample</em><span>frames at 1/30 s for slides, charts and on-screen text</span></div>
+          <div class="step"><em>Distill</em><span>claims, numbers and quotes extracted with sources</span></div>
+          <div class="step"><em>Receipt</em><span>each output linked to its timestamp and frame</span></div>
+        </div>
+      </section>
+      <section>
+        <div class="section-head"><div><div class="mini-label">03 / Principles</div><h2>Built like an archive, not an app.</h2></div><p>The unglamorous rules that make the output citable.</p></div>
+        <div class="stack">
+          <div class="feature"><span class="date">Evidence rule</span><h4>No claim without a moment</h4><p>Distillation is extraction, not generation. If a statement can't be traced to a timestamp in the source, it doesn't ship.</p></div>
+          <div class="feature"><span class="date">Budget rule</span><h4>Transcript first, frames on target</h4><p>Text carries the bulk of the signal; frame analysis is spent surgically where visuals matter — slides, charts, demos.</p></div>
+          <div class="feature"><span class="date">Local-first</span><h4>Own the pipeline</h4><p>Capture, transcription and sampling run on owned hardware with open models — no vendor can see the corpus or cut the cord.</p></div>
+          <div class="feature"><span class="date">Private beta</span><h4>Gated while it sharpens</h4><p>Nybls runs behind login while the distillation quality is tuned. Output ships as documents: blueprints, briefings, threads and post drafts.</p></div>
+        </div>
+      </section>
+    </main>
+    <footer><div><div class="footer-name">Nikola Stojanow</div><div>Frontier Systems Architect</div></div><div>Dubai · Europe<br><a href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com</a></div><div><a href="../../">nikolastojanow.com</a><br>© 2026</div></footer>
+  </div>
+</body>
+</html>
