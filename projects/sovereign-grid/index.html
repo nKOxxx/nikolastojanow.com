@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sovereign Grid — a live B2B marketplace for GPU compute with a market-intel engine ingesting real pricing signals. Built by Nikola Stojanow." />
+  <title>Sovereign Grid | Nikola Stojanow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306080b'/%3E%3Cpath d='M22 76V24h12l32 32V24h12v52H66L34 44v32z' fill='%23d7ff37'/%3E%3Ccircle cx='77' cy='23' r='7' fill='%23ff5a2f'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <style>
+    .status{display:inline-flex;width:fit-content;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:5px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+    .status.live{border-color:rgba(215,255,55,.5);color:var(--acid)}
+    .status.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid)}
+    .projects-hero{padding:96px 0 64px;border-bottom:1px solid rgba(255,255,255,.09)}
+    .projects-hero h1{font-size:clamp(48px,7vw,96px);line-height:.88;letter-spacing:-.08em;margin:20px 0 26px;max-width:900px}
+    .projects-hero p{max-width:660px;color:#c1cbd0;font-size:19px;margin:0 0 26px}
+    section{padding:88px 0}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .shot{border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;background:#0a0f14;min-width:0}
+    .shot img{display:block;width:100%;height:auto}
+    .shot figcaption{padding:12px 16px;color:var(--dim);font-size:12px;border-top:1px solid rgba(255,255,255,.08)}
+    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:34px}
+    .proof{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);border-radius:16px;padding:15px}
+    .proof strong{display:block;font-size:28px;letter-spacing:-.04em;margin-bottom:4px}
+    .proof span{color:var(--muted);font-size:13px}
+    .feature{border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.04);padding:22px}
+    .feature h4{margin:10px 0 7px;font-size:20px;letter-spacing:-.035em}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+    .date{color:var(--dim);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+    .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+    @media(max-width:920px){.split,.stat-row,.stack{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="../../"><span class="brand-mark">N</span><span>NIKOLA STOJANOW</span></a>
+      <div class="nav-links"><a href="../../#work">Work</a><a href="../">Projects</a><a href="../../#research">Research</a><a href="../../#speaking">Speaking</a><a href="../../#about">About</a></div>
+      <a class="nav-cta" href="../../#contact">Start a conversation ↗</a>
+    </nav>
+    <main>
+      <section class="projects-hero">
+        <div class="mini-label">Project / Compute market infrastructure</div>
+        <div class="status live" style="margin-top:14px">Live · v1 in production</div>
+        <h1>Sovereign Grid</h1>
+        <p>A business-to-business marketplace for GPU compute capacity. Buyers post demand, the matching engine filters by region, accelerator and price, and deals run directly between counterparties with an operator review gate on supply. A market-intel engine ingests real pricing signals from live sources into an indicative index — never a "live market price," always dated, evidence-specific observations.</p>
+        <div class="actions"><a class="button" href="https://sovereign-grid-o707.onrender.com" target="_blank" rel="noreferrer">Open the live marketplace ↗</a><a class="button secondary" href="../">All projects</a></div>
+        <div class="stat-row">
+          <div class="proof"><strong>16</strong><span>screens, one coherent dark design system</span></div>
+          <div class="proof"><strong>313</strong><span>automated checks across unit, integration and e2e</span></div>
+          <div class="proof"><strong>6h</strong><span>signal-ingest cadence from live market sources</span></div>
+          <div class="proof"><strong>3</strong><span>pricing levels: indicative, quoted, transacted</span></div>
+        </div>
+      </section>
+      <section>
+        <div class="section-head"><div><div class="mini-label">01 / The product</div><h2>A real marketplace loop.</h2></div><p>Everything below is running in production today — no mockups.</p></div>
+        <div class="stack">
+          <div class="feature"><span class="date">Demand side</span><h4>Post demand → ranked matches</h4><p>Buyers specify region, accelerator, and budget; the engine ranks datacenter supply against hard filters, then scores what survives.</p></div>
+          <div class="feature"><span class="date">Supply side</span><h4>Seller onboarding + review gate</h4><p>Providers submit listings that stay invisible until an operator approves them — supply quality is curated, not assumed.</p></div>
+          <div class="feature"><span class="date">Deal engine</span><h4>Buyer→seller deals, atomic accept</h4><p>Accept is a single atomic database operation: first accept wins, repeats are idempotent, and both parties are auto-linked into a deal room.</p></div>
+          <div class="feature"><span class="date">Market intel</span><h4>Signals, not vibes</h4><p>Live ingest from vast.ai (datacenter SKUs only) feeds a three-level index: indicative public pricing, quoted partner offers, and anonymized transacted deals.</p></div>
+        </div>
+      </section>
+      <section>
+        <div class="section-head"><div><div class="mini-label">02 / Screens</div><h2>Evidence, not decoration.</h2></div><p>Live captures from the production deployment.</p></div>
+        <div class="split">
+          <figure class="shot"><img src="assets/sg_final_home.png" alt="Sovereign Grid marketplace home" loading="lazy" /><figcaption>Marketplace home — live listings and indicative market index.</figcaption></figure>
+          <figure class="shot"><img src="assets/sg_final_matches.png" alt="Sovereign Grid match results" loading="lazy" /><figcaption>Match results — demand ranked against filtered supply with fee-transparent pricing.</figcaption></figure>
+        </div>
+      </section>
+      <section>
+        <div class="section-head"><div><div class="mini-label">03 / Under the hood</div><h2>Built like infrastructure.</h2></div><p>The unglamorous parts done properly.</p></div>
+        <div class="stack">
+          <div class="feature"><span class="date">Security</span><h4>Row-level security by default</h4><p>Postgres RLS on every table; public reads go through whitelisted security-definer views. Sellers can't see buyer identities; buyers can't see seller economics.</p></div>
+          <div class="feature"><span class="date">Integrity</span><h4>Audited state changes</h4><p>Listing approvals, deal transitions and observation inserts are append-only audited. Accept is a SECURITY DEFINER function — no torn state.</p></div>
+          <div class="feature"><span class="date">Quality</span><h4>313 checks, CI-enforced design law</h4><p>Unit + integration + e2e suites gate every deploy; a design-law test suite fails any screen that drifts from the token system.</p></div>
+          <div class="feature"><span class="date">Operations</span><h4>Zero-downtime deploys + DB watchdog</h4><p>Continuous deployment to Render with an automated daily database-expiry watchdog and one-command restore runbook.</p></div>
+        </div>
+      </section>
+      <section>
+        <div class="section-head"><div><div class="mini-label">04 / Roadmap</div><h2>Where this goes next.</h2></div><p>Shipped weekly; the moat compounds.</p></div>
+        <div class="stack">
+          <div class="feature"><span class="date">Shipped</span><h4>Signals pipeline (v1)</h4><p>vast.ai ingest live on a 6-hour cadence; family taxonomy for aggregation across H100/A100/H200/B200/GB200/L40S.</p></div>
+          <div class="feature"><span class="date">Next</span><h4>AWS + Azure reference pricing</h4><p>Both public pricing APIs verified reachable — hyperscaler reference rows will anchor the indicative index.</p></div>
+          <div class="feature"><span class="date">Next</span><h4>Transacted-level signal capture</h4><p>Closed deals auto-record anonymized observations — proprietary price discovery no scraped source can replicate.</p></div>
+          <div class="feature"><span class="date">Next</span><h4>Trust bundle</h4><p>Email verification, password reset, rate limiting and legal pages — clearing the path for first external counterparties.</p></div>
+        </div>
+      </section>
+    </main>
+    <footer><div><div class="footer-name">Nikola Stojanow</div><div>Frontier Systems Architect</div></div><div>Dubai · Europe<br><a href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com</a></div><div><a href="../../">nikolastojanow.com</a><br>© 2026</div></footer>
+  </div>
+</body>
+</html>
