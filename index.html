@@ -1,101 +1,132 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Nikola Stojanow builds frontier systems across AI, digital assets, capital, governance and institutional infrastructure." />
-  <title>Nikola Stojanow | Frontier Systems Architect</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306080b'/%3E%3Cpath d='M22 76V24h12l32 32V24h12v52H66L34 44v32z' fill='%23d7ff37'/%3E%3Ccircle cx='77' cy='23' r='7' fill='%23ff5a2f'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="assets/site.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Nikola Stojanow — frontier systems architect. Founder of Sovereign Grid (live GPU compute marketplace) and Nybls (learning intelligence). Co-founder of æternity and Meta Change Capital.">
+<meta property="og:title" content="Nikola Stojanow — Frontier Systems Architect">
+<meta property="og:description" content="Two live products in production. Co-founder of a Layer-1 protocol and a €100M fund. Production > decks.">
+<meta property="og:type" content="website">
+<title>Nikola Stojanow — Frontier Systems Architect</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306080b'/%3E%3Cpath d='M22 76V24h12l32 32V24h12v52H66L34 44v32z' fill='%23d7ff37'/%3E%3Ccircle cx='77' cy='23' r='7' fill='%23ff5a2f'/%3E%3C/svg%3E">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--black:#000;--white:#fff;--gray:#8a8a8a;--line:#232323}
+  html{scroll-behavior:smooth}
+  [id]{scroll-margin-top:84px}
+  body{background:var(--black);color:var(--white);font:400 15px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--white);color:var(--black)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--black);z-index:9}
+  .brand{font-weight:700;font-size:15px;letter-spacing:.22em}
+  .nav-links{display:flex;gap:28px;font-size:12px;letter-spacing:.18em;color:var(--gray)}
+  .nav-links a:hover{color:var(--white)}
+  .hero{padding:0;border-bottom:1px solid var(--line)}
+  .hero-inner{padding:150px 0 90px}
+  h1{font-size:clamp(44px,9.5vw,140px);line-height:.92;letter-spacing:-.03em;font-weight:800;text-transform:uppercase}
+  h1 .outline{color:transparent;-webkit-text-stroke:1.5px var(--white)}
+  .hero-sub{margin-top:34px;max-width:520px;color:var(--gray);font-size:16px;line-height:1.65}
+  .hero-meta{margin-top:44px;display:flex;gap:40px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);flex-wrap:wrap}
+  .hero-meta b{color:var(--white)}
+  .marquee{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gray)}
+  .marquee span{display:inline-block}
+  @media(prefers-reduced-motion:no-preference){.marquee span{animation:slide 28s linear infinite}}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  section{padding:90px 0;border-bottom:1px solid var(--line)}
+  .slabel{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gray);margin-bottom:46px;display:flex;justify-content:space-between}
+  .prow{display:block;padding:40px 0;border-top:1px solid var(--line);transition:background .16s ease,color .16s ease}
+  .prow .top{display:flex;align-items:baseline;gap:28px}
+  .prow .n{font-size:13px;color:var(--gray);font-variant-numeric:tabular-nums;letter-spacing:.1em}
+  .prow h3{font-size:clamp(34px,5.4vw,72px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95}
+  .prow .st{margin-left:auto;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);border:1px solid var(--line);padding:6px 12px;white-space:nowrap}
+  .prow .st.on{background:var(--white);color:var(--black);border-color:var(--white);font-weight:700}
+  .prow p{margin-top:16px;max-width:600px;color:var(--gray);font-size:15px;line-height:1.65}
+  .prow .arrow{float:right;font-size:34px;font-weight:300;line-height:1;margin-top:6px}
+  .prow:hover{background:var(--white);color:var(--black)}
+  .prow:hover .n,.prow:hover p,.prow:hover .st{color:var(--black);border-color:var(--black)}
+  .prow:hover .st.on{background:var(--black);color:var(--white);border-color:var(--black)}
+  .prow.small{padding:28px 0}
+  .prow.small h3{font-size:clamp(20px,3vw,38px)}
+  .prow.small .arrow{font-size:24px;margin-top:2px}
+  .stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .stat4>div{background:var(--black);padding:34px 26px}
+  .stat4 b{display:block;font-size:clamp(34px,4.4vw,58px);font-weight:800;letter-spacing:-.02em;line-height:1}
+  .stat4 span{display:block;margin-top:10px;color:var(--gray);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .manif{font-size:clamp(26px,4vw,52px);font-weight:800;text-transform:uppercase;line-height:1.05;letter-spacing:-.02em;max-width:1050px}
+  .manif .dim{color:#3a3a3a}
+  .about2{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:64px}
+  .about2 h4{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gray);margin-bottom:20px}
+  .about2 li{list-style:none;display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-top:1px solid var(--line);font-size:14.5px}
+  .about2 li span{color:var(--gray);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+  .contact-sec{padding:130px 0}
+  .contact-sec h2{font-size:clamp(42px,8.5vw,120px);font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.03em}
+  .contact-sec a.mail{display:inline-block;margin-top:44px;font-size:clamp(18px,2.6vw,30px);font-weight:700;border-bottom:3px solid var(--white);padding-bottom:6px;transition:color .16s,border-color .16s}
+  .contact-sec a.mail:hover{color:var(--gray);border-color:var(--gray)}
+  footer{padding:34px 0 50px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);flex-wrap:wrap;gap:10px}
+  @media(max-width:860px){.stat4{grid-template-columns:1fr 1fr}.about2{grid-template-columns:1fr}.nav-links{display:none}.prow .st{display:none}}
+</style>
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#top"><span class="brand-mark">N</span><span>NIKOLA STOJANOW</span></a>
-      <div class="nav-links"><a href="#work">Work</a><a href="projects/">Projects</a><a href="#research">Research</a><a href="#speaking">Speaking</a><a href="#media">Media</a><a href="#about">About</a></div>
-      <a class="nav-cta" href="mailto:hello@nikolastojanow.com">Start a conversation ↗</a>
-    </nav>
-    <main id="top">
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Frontier systems architect / Dubai · Europe</div>
-          <h1>The infrastructure layer is becoming <span class="cut">the strategy.</span></h1>
-          <p class="hero-copy">Nikola Stojanow builds at the point where AI, digital assets, capital, governance and institutional infrastructure start to converge. The work spans regulated banking, Layer-1 blockchain, venture creation, geopolitical intelligence and sovereign-grade decision systems.</p>
-          <div class="actions"><a class="button" href="#work">Explore the operating map ↘</a><a class="button secondary" href="#research">Read the research</a></div>
-          <div class="proof-row">
-            <div class="proof"><strong>$1.25B</strong><span>æternity peak network valuation, from prior profile material</span></div>
-            <div class="proof"><strong>30+</strong><span>startups invested in or supported across ecosystems</span></div>
-            <div class="proof"><strong>4</strong><span>continents reached through AE Ventures and Starfleet activity</span></div>
-          </div>
-        </div>
-        <div class="radar" aria-label="System map illustration">
-          <div class="axis a"></div><div class="axis b"></div><div class="axis c"></div>
-          <div class="pulse one"></div><div class="pulse two"></div><div class="pulse three"></div>
-          <div class="radar-core">AI<br>Capital<br>Governance</div>
-          <div class="radar-caption"><div class="chip">Regulated finance, custody, tokenized treasury and new ventures</div><div class="chip">Research, product labs and intelligence systems for institutional action</div></div>
-        </div>
-      </section>
-      <section id="work">
-        <div class="section-head"><div><div class="mini-label">01 / Operating map</div><h2>Products, ventures and systems.</h2></div><p>This site should work like a public command center: a living index of what is being built, what is being researched, where Nikola is speaking and where the work is being cited.</p></div>
-        <div class="grid">
-          <a class="card feature-card span-2" href="#about"><div><span class="tag">Banking infrastructure</span></div><div><h3>Bank Frick · New Ventures</h3><p>Partner, New Ventures, working across the institutional edge of digital assets, regulated banking infrastructure, AI wealth, custody and tokenized treasury.</p></div><div class="card-footer"><span>Current role</span><span>Institutional finance ↗</span></div></a>
-          <a class="card" href="#media"><div><span class="tag">Protocol infrastructure</span></div><div><h3>æternity</h3><p>Co-founder of an early Layer-1 blockchain, later leading Foundation work around ecosystem growth, Hyperchains and Bitcoin interoperability.</p></div><div class="card-footer"><span>Protocol</span><span>Layer-1 history ↗</span></div></a>
-          <a class="card" href="#contact"><div><span class="tag">Strategic intelligence</span></div><div><h3>GulfWatch</h3><p>Real-time Middle East geopolitical intelligence for monitoring conflict signals, early warning, historical context and escalation risk.</p></div><div class="card-footer"><span>In development</span><span>Intelligence product ↗</span></div></a>
-          <a class="card" href="#media"><div><span class="tag">Venture engine</span></div><div><h3>AE Ventures / Starfleet</h3><p>Venture arm and accelerator activity supporting early blockchain teams, with programs and ecosystem-building across multiple regions.</p></div><div class="card-footer"><span>Venture creation</span><span>Startup ecosystems ↗</span></div></a>
-          <a class="card" href="#media"><div><span class="tag">Capital allocation</span></div><div><h3>Vitosha & MCC</h3><p>Vitosha Venture Partners, Meta Change Capital and a wider investment track across emerging markets, deep tech and digital assets.</p></div><div class="card-footer"><span>Venture capital</span><span>Investing ↗</span></div></a>
-          <a class="card" href="projects/sovereign-grid/"><div><span class="tag">Compute market infrastructure</span></div><div><h3>Sovereign Grid</h3><p>A live B2B marketplace for GPU compute: demand meets datacenter supply, with a market-intel engine ingesting real pricing signals (vast.ai today, AWS and Azure next) into an indicative index.</p></div><div class="card-footer"><span>Live product</span><span>Open the marketplace ↗</span></div></a>
-          <a class="card" href="projects/nybls/"><div><span class="tag">Learning intelligence</span></div><div><h3>Nybls</h3><p>Turns YouTube videos, podcasts, articles, PDFs and courses into interactive learning sessions — briefs, key moments and quizzes that make knowledge stick. Live and open to everyone.</p></div><div class="card-footer"><span>Live product</span><span>Try Nybls ↗</span></div></a>
-        </div>
-      </section>
-      <section id="research">
-        <div class="section-head"><div><div class="mini-label">02 / Research desk</div><h2>Publish the thinking behind the work.</h2></div><p>Your Google Docs and unpublished files should become a proper research library, not loose PDFs or hidden drafts.</p></div>
-        <div class="research-layout">
-          <a class="research-feature" href="#contact"><div><span class="tag">Research thesis</span><h3>Institutions do not need more dashboards. They need decision systems.</h3><p>A research track on how AI agents, market infrastructure, custody, compute and government capability combine into the next institutional operating layer.</p></div><strong>Open research index ↗</strong></a>
-          <div class="research-list">
-            <a class="research-item" href="#contact"><span class="date">Field note · 2026</span><h4>Thin Books, Big Money</h4><p>Where liquidity actually comes from in prediction markets and why the market structure matters more than the interface.</p></a>
-            <a class="research-item" href="#contact"><span class="date">Framework · 2026</span><h4>The Sovereign Intelligence System</h4><p>Seeing reality, interpreting consequences and identifying action before institutions are forced into reaction.</p></a>
-            <a class="research-item" href="#contact"><span class="date">Analysis · 2026</span><h4>What institutional AI actually needs</h4><p>From impressive agents to accountable workflows, custody, approvals, auditability and security.</p></a>
-            <a class="research-item" href="#contact"><span class="date">Protocol note · 2024</span><h4>Hyperchains, BitcoinOS and enterprise blockchain</h4><p>How blockchain infrastructure can anchor more advanced applications without abandoning security assumptions.</p></a>
-          </div>
-        </div>
-      </section>
-      <section id="speaking">
-        <div class="section-head"><div><div class="mini-label">03 / Speaking</div><h2>Where the ideas enter the room.</h2></div><p>Speaking should reinforce the worlds Nikola operates in: banking, AI, digital assets, security, prediction markets and sovereign infrastructure.</p></div>
-        <div class="timeline">
-          <div class="event"><time>OCT 08, 2026</time><div><h3>Agentic Finance Summit & The Odds: Prediction Markets Live</h3><p>Singapore, during TOKEN2049 week. Institutional finance meets agentic AI, prediction markets and market infrastructure.</p></div><div class="meta">Suntec Convention Centre</div></div>
-          <div class="event"><time>JUN 2026</time><div><h3>Proof of Talk · DeFi Under Attack</h3><p>Moderator for a Louvre Palace panel with Ledger, Mysten Labs, Edge & Node and CertiK on securing onchain finance and the machine economy.</p></div><div class="meta">Paris · Louvre Palace</div></div>
-          <div class="event"><time>2026</time><div><h3>Bank Frick at Korea Blockchain Week / EastPoint Seoul</h3><p>Partner, New Ventures, representing the Liechtenstein-based bank serving financial intermediaries and blockchain businesses.</p></div><div class="meta">Seoul</div></div>
-          <div class="event"><time>2024</time><div><h3>Web Summit · Hyperchains launch</h3><p>Aeternity Foundation announced Hyperchains, positioned around enterprise blockchain adoption and Bitcoin interoperability.</p></div><div class="meta">Lisbon</div></div>
-          <div class="event"><time>2024</time><div><h3>TOKEN2049 Singapore</h3><p>Foundation Chairman address on blockchain scalability, Layer-1 and Layer-2 design and the future of infrastructure.</p></div><div class="meta">Singapore</div></div>
-        </div>
-      </section>
-      <section id="media">
-        <div class="section-head"><div><div class="mini-label">04 / Media and proof</div><h2>Evidence, not decoration.</h2></div><p>The media layer gives visitors a fast way to verify credibility: interviews, profiles, event pages, articles and source links behind each claim.</p></div>
-        <div class="grid">
-          <a class="card" href="https://yourstory.com/2020/02/blockchain-startups-investment-india-ae-ventures-aeternity" target="_blank" rel="noreferrer"><div><span class="tag">Interview</span></div><div><h3>YourStory</h3><p>Interview on AE Ventures, blockchain startups and why India was a strategic market for ecosystem investment.</p></div><div class="card-footer"><span>2020</span><span>Open source ↗</span></div></a>
-          <a class="card" href="https://news.crunchbase.com/fintech-ecommerce/meta-change-capital-launches-with-e100m-venture-fund-aimed-at-blockchain/" target="_blank" rel="noreferrer"><div><span class="tag">Press</span></div><div><h3>Crunchbase News</h3><p>Coverage of Meta Change Capital and the €100M blockchain venture fund thesis focused on emerging markets.</p></div><div class="card-footer"><span>2020</span><span>Open source ↗</span></div></a>
-          <a class="card" href="https://proofoftalk.io/sessions/defi-under-attack-securing-onchain-finance-and-the-machine-economy/" target="_blank" rel="noreferrer"><div><span class="tag">Stage</span></div><div><h3>Proof of Talk</h3><p>Official session page for “DeFi Under Attack”, listing Nikola as moderator.</p></div><div class="card-footer"><span>2026</span><span>Open source ↗</span></div></a>
-          <a class="card" href="https://blog.aeternity.com/celebrating-six-years-of-aeternity-mainnet-the-biggest-year-yet" target="_blank" rel="noreferrer"><div><span class="tag">Ecosystem</span></div><div><h3>æternity Foundation</h3><p>Foundation update noting Nikola taking charge and explaining Hyperchains syncing with Bitcoin.</p></div><div class="card-footer"><span>2024</span><span>Open source ↗</span></div></a>
-          <a class="card" href="https://techcrunch.com/2021/06/17/vitosha-venture-partners-launches-30m-fund-to-back-bulgarian-related-early-stage-startups/" target="_blank" rel="noreferrer"><div><span class="tag">Venture</span></div><div><h3>TechCrunch</h3><p>Vitosha Venture Partners launch coverage, including Nikola among the managing partners.</p></div><div class="card-footer"><span>2021</span><span>Open source ↗</span></div></a>
-          <a class="card" href="https://www.bankfrick.li/en/bank-frick-considers-strategic-partnerships" target="_blank" rel="noreferrer"><div><span class="tag">Institution</span></div><div><h3>Bank Frick</h3><p>Context on Bank Frick’s digital B2B banking strategy and blockchain banking position.</p></div><div class="card-footer"><span>2026</span><span>Open source ↗</span></div></a>
-        </div>
-      </section>
-      <section id="about">
-        <div class="bio">
-          <div class="portrait"><div><div class="mini-label">05 / Biography</div><h3>From protocol founder to institutional systems builder.</h3></div><div class="chip">This section is designed to become the canonical short bio for press, speaking pages and intros.</div></div>
-          <div class="bio-copy"><p>Nikola Stojanow is an entrepreneur, venture builder and frontier systems architect working across AI, governance, digital infrastructure and digital assets. He is Partner, New Ventures at Bank Frick, where his work sits at the intersection of regulated banking, institutional crypto infrastructure and new financial rails.</p><p>He co-founded æternity, an early Layer-1 blockchain network, and later led the Aeternity Foundation through ecosystem growth, strategic partnerships and infrastructure initiatives including Hyperchains. Through AE Ventures and Starfleet, he helped build and fund blockchain companies across several markets.</p><p>His venture background includes Vitosha Venture Partners, Meta Change Capital, Techstars mentoring and advisory work across blockchain, AI, capital formation and institutional transformation. Today his broader product and research work focuses on systems that help organizations see earlier, decide better and build infrastructure for a more autonomous operating environment.</p></div>
-        </div>
-      </section>
-      <section><p class="quote">“The question is not whether systems will change. The question is whether institutions can <span>see the change early enough to act.</span>”</p></section>
-      <section id="contact">
-        <div class="contact">
-          <div class="contact-panel"><div class="mini-label">Contact</div><h2>Bring the right conversation.</h2><p>Partnerships, pilots, research, institutional products, venture collaboration, speaking and media.</p><div class="actions"><a class="button" href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com ↗</a><a class="button secondary" href="https://www.linkedin.com/in/nikola-stojanow" target="_blank" rel="noreferrer">LinkedIn</a></div></div>
-          <div class="contact-panel"><div class="mini-label">Next publication lanes</div><ul class="source-list"><li>Research library from Google Docs and unpublished files</li><li>Project detail pages for GulfWatch, ALLEADZ, Sovereign Grid, Nybls, DEMOZ and Sovereign Twin</li><li>Media archive with source links and short context for each mention</li><li>Speaking page with session recordings, event pages and speaker bio</li><li>Namecheap domain connection once the site is ready to publish</li></ul></div>
-        </div>
-      </section>
-    </main>
-    <footer><div><div class="footer-name">Nikola Stojanow</div><div>Frontier Systems Architect</div></div><div>Dubai · Europe<br><a href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com</a></div><div>AI · Digital Assets · Capital · Governance<br>© 2026</div></footer>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#">STOJANOW</a>
+    <div class="nav-links"><a href="#work">Work</a><a href="#thesis">Thesis</a><a href="#record">Record</a><a href="#proof">Proof</a><a href="#contact">Contact</a></div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <h1>Nikola<br><span class="outline">Stojanow</span></h1>
+      <p class="hero-sub">Frontier systems architect. Two live products in production. Co-founder of a Layer-1 protocol and a €100M fund. I build infrastructure that assumes nothing and ships everything.</p>
+      <div class="hero-meta"><div>Dubai · Europe</div><div><b>2</b> live products</div><div><b>01</b> protocol</div><div><b>€100M</b> fund</div></div>
+    </div>
   </div>
+  <div class="marquee" aria-hidden="true"><span>SOVEREIGN GRID — LIVE&nbsp;&nbsp;·&nbsp;&nbsp;NYBLS — LIVE&nbsp;&nbsp;·&nbsp;&nbsp;GULFWATCH — IN DEVELOPMENT&nbsp;&nbsp;·&nbsp;&nbsp;DEMOZ — CONCEPT&nbsp;&nbsp;·&nbsp;&nbsp;SOVEREIGN TWIN — CONCEPT&nbsp;&nbsp;·&nbsp;&nbsp;SOVEREIGN GRID — LIVE&nbsp;&nbsp;·&nbsp;&nbsp;NYBLS — LIVE&nbsp;&nbsp;·&nbsp;&nbsp;GULFWATCH — IN DEVELOPMENT&nbsp;&nbsp;·&nbsp;&nbsp;DEMOZ — CONCEPT&nbsp;&nbsp;·&nbsp;&nbsp;SOVEREIGN TWIN — CONCEPT&nbsp;&nbsp;·&nbsp;&nbsp;</span></div>
+
+  <section id="work">
+    <div class="slabel"><span>01 — The work</span><span>Production &gt; decks</span></div>
+    <a class="prow" href="projects/sovereign-grid/"><span class="arrow">→</span><div class="top"><span class="n">/01</span><h3>Sovereign Grid</h3><span class="st on">Live</span></div><p>B2B marketplace for GPU compute. Demand meets datacenter supply; a market-intel engine prices the market with real signals — indicative, quoted, transacted.</p></a>
+    <a class="prow" href="projects/nybls/"><span class="arrow">→</span><div class="top"><span class="n">/02</span><h3>Nybls</h3><span class="st on">Live</span></div><p>Video, podcasts, articles, PDFs, courses in — interactive learning sessions out. Brief, key moments, quiz. Knowledge that sticks.</p></a>
+    <a class="prow" href="#contact"><span class="arrow">→</span><div class="top"><span class="n">/03</span><h3>GulfWatch</h3><span class="st">In dev</span></div><p>Real-time Middle East geopolitical intelligence: conflict signals, early warning, escalation risk. Built for institutional decision-makers.</p></a>
+    <a class="prow" href="#contact"><span class="arrow">→</span><div class="top"><span class="n">/04</span><h3>Demoz</h3><span class="st">Concept</span></div><p>An operating surface for government capability — decision simulation and accountability for public institutions.</p></a>
+    <a class="prow" href="#contact"><span class="arrow">→</span><div class="top"><span class="n">/05</span><h3>Sovereign Twin</h3><span class="st">Concept</span></div><p>Sovereign-grade decision systems. See reality. Read consequences. Move first.</p></a>
+  </section>
+
+  <section id="thesis">
+    <span id="research"></span>
+    <div class="slabel"><span>02 — Thesis</span><span>Why I build</span></div>
+    <p class="manif">Markets run on <span class="dim">narrative</span> until someone builds the <u>truth layer</u>. Compute needs price truth. Media needs source truth. Governance needs consequence truth. <span class="dim">That's the work.</span></p>
+    <div class="stat4" style="margin-top:70px">
+      <div><b>3</b><span>pricing levels captured</span></div>
+      <div><b>6h</b><span>signal ingest cadence</span></div>
+      <div><b>313</b><span>automated checks</span></div>
+      <div><b>0</b><span>mockups shipped</span></div>
+    </div>
+  </section>
+
+  <section id="record">
+    <span id="about"></span>
+    <div class="slabel"><span>03 — Record</span><span>Founder → operator → investor</span></div>
+    <div class="about2">
+      <div><h4>Protocol &amp; product</h4><ul><li>æternity — Layer-1 blockchain<span>Co-founder</span></li><li>Sovereign Grid — GPU compute market<span>Founder</span></li><li>Nybls — learning intelligence<span>Founder</span></li></ul></div>
+      <div><h4>Venture &amp; capital</h4><ul><li>AE Ventures / Starfleet<span>Venture engine</span></li><li>Vitosha Venture Partners<span>Venture capital</span></li><li>Meta Change Capital — €100M<span>Fund co-founder</span></li></ul></div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <span id="speaking"></span><span id="media"></span>
+    <div class="slabel"><span>04 — Proof</span><span>Press &amp; stage</span></div>
+    <a class="prow small" href="https://proofoftalk.io/sessions/defi-under-attack-securing-onchain-finance-and-the-machine-economy/" target="_blank" rel="noreferrer"><span class="arrow">↗</span><div class="top"><span class="n">/01</span><h3>Proof of Talk — Paris</h3><span class="st">2026</span></div><p>Official session page for "DeFi Under Attack: Securing Onchain Finance and the Machine Economy" — moderator.</p></a>
+    <a class="prow small" href="https://news.crunchbase.com/fintech-ecommerce/meta-change-capital-launches-with-e100m-venture-fund-aimed-at-blockchain/" target="_blank" rel="noreferrer"><span class="arrow">↗</span><div class="top"><span class="n">/02</span><h3>Crunchbase News</h3><span class="st">2020</span></div><p>Launch coverage of Meta Change Capital — the €100M blockchain venture fund thesis focused on emerging markets.</p></a>
+    <a class="prow small" href="https://yourstory.com/2020/02/blockchain-startups-investment-india-ae-ventures-aeternity" target="_blank" rel="noreferrer"><span class="arrow">↗</span><div class="top"><span class="n">/03</span><h3>YourStory</h3><span class="st">2020</span></div><p>Interview on AE Ventures, blockchain startups and why India was a strategic market for ecosystem investment.</p></a>
+  </section>
+
+  <section id="contact" class="contact-sec">
+    <h2>Let's talk.<br>Nothing sells itself.</h2>
+    <a class="mail" href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com</a>
+  </section>
+
+  <footer><div>© 2026 Stojanow</div><div>Dubai · Europe</div><div><a href="https://www.linkedin.com/in/nikola-stojanow" target="_blank" rel="noreferrer">LinkedIn — /nikola-stojanow</a></div></footer>
+</div>
 </body>
 </html>
