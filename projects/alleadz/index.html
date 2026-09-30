@@ -3,85 +3,162 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Alleadz — an intelligence-to-opportunity operating system: turns a change in the world into a specific, evidence-linked commercial opportunity, with human-approved outreach. Built by Nikola Stojanow." />
+  <meta name="description" content="Alleadz — an intelligence-to-opportunity operating system: evidence-linked commercial opportunities, human-approved outreach. Built by Nikola Stojanow." />
   <title>Alleadz | Nikola Stojanow</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230e0d09'/%3E%3Cpath d='M22 76V24h12l32 32V24h12v52H66L34 44v32z' fill='%23f2d32a'/%3E%3Ccircle cx='77' cy='23' r='7' fill='%23f2efe8'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23f6f7fb'/%3E%3Ccircle cx='50' cy='50' r='26' fill='none' stroke='%234338ca' stroke-width='9'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%234338ca'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .status{display:inline-flex;width:fit-content;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:5px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)}
-    .status.live{border-color:rgba(242,211,42,.5);color:var(--acid)}
-    .status.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid)}
-    .projects-hero{padding:96px 0 64px;border-bottom:1px solid rgba(255,255,255,.09)}
-    .projects-hero h1{font-size:clamp(48px,7vw,96px);line-height:.88;letter-spacing:-.08em;margin:20px 0 26px;max-width:900px}
-    .projects-hero p{max-width:660px;color:#c1cbd0;font-size:19px;margin:0 0 26px}
-    section{padding:88px 0}
-    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:34px}
-    .proof{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);border-radius:16px;padding:15px}
-    .proof strong{display:block;font-size:28px;letter-spacing:-.04em;margin-bottom:4px}
-    .proof span{color:var(--muted);font-size:13px}
-    .feature{border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.04);padding:22px}
-    .feature h4{margin:10px 0 7px;font-size:20px;letter-spacing:-.035em}
-    .feature p{margin:0;color:var(--muted);font-size:14px}
-    .date{color:var(--dim);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
-    .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-    .law{border-left:3px solid var(--acid);padding:14px 18px;background:rgba(242,211,42,.05);border-radius:0 14px 14px 0;color:#c1cbd0;font-size:15px;margin:26px 0 0}
-    @media(max-width:920px){.stat-row,.stack{grid-template-columns:1fr}}
+    :root{--ink:#111322;--ink-2:#4a4f66;--ink-3:#8a8fa8;--line:#e3e5ef;--line-2:#d3d6e6;
+      --paper:#f6f7fb;--card:#fff;--indigo:#4338ca;--indigo-deep:#312e81;--indigo-tint:#eef0fb;
+      --ok:#0f766e;--warn:#b45309;--bad:#b91c1c;
+      --ring:0 0 0 3px rgba(67,56,202,.18)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);
+      font:400 14.5px/1.5 'Inter Variable',Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:58px}
+    .wordmark{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.14em;font-size:13.5px;color:var(--ink)}
+    .ring{width:20px;height:20px;border-radius:50%;border:3px solid var(--indigo);position:relative;flex:none}
+    .ring::after{content:'';position:absolute;inset:4px;border-radius:50%;background:var(--indigo)}
+    .navlinks{display:flex;gap:22px;font-size:12.5px;font-weight:550;color:var(--ink-3)}
+    .navlinks a:hover{color:var(--indigo)}
+    .nav-cta{font-size:12.5px;font-weight:650;color:#fff;background:var(--indigo);padding:7px 14px;border-radius:8px}
+    .nav-cta:hover{background:var(--indigo-deep)}
+    header{padding:74px 0 58px;border-bottom:1px solid var(--line)}
+    .crumb{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+    .pill{display:inline-flex;align-items:center;gap:7px;margin-left:12px;font-size:11px;font-weight:700;
+      letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:#e7f5f2;border:1px solid #bfe3dd;
+      border-radius:999px;padding:4px 11px;vertical-align:2px}
+    .pill i{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+    h1{margin:20px 0 16px;font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-.035em;line-height:1.02;color:var(--ink)}
+    .lede{max-width:660px;font-size:16.5px;color:var(--ink-2);margin:0 0 26px}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{font-size:13.5px;font-weight:650;padding:10px 18px;border-radius:8px;background:var(--indigo);color:#fff}
+    .btn:hover{background:var(--indigo-deep)}
+    .btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line-2)}
+    .btn.ghost:hover{border-color:var(--indigo);color:var(--indigo)}
+    /* working-surface panel: mimic the product's sidenav+table shell */
+    .shell{margin-top:38px;border:1px solid var(--line);border-radius:14px;background:var(--card);
+      display:grid;grid-template-columns:210px 1fr;overflow:hidden;box-shadow:0 20px 60px rgba(17,19,34,.07)}
+    .sidenav{border-right:1px solid var(--line);padding:18px 12px;background:#fbfbfe}
+    .sidenav .wm{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.13em;font-size:12.5px;padding:0 8px 16px;color:var(--ink)}
+    .sidenav .wm .ring{width:16px;height:16px;border-width:2.5px}
+    .sidenav .wm .ring::after{inset:3.5px}
+    .navitem{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;
+      font-size:13px;font-weight:550;color:var(--ink-2)}
+    .navitem.on{background:var(--indigo-tint);color:var(--indigo-deep)}
+    .navitem .n{font-size:11px;color:var(--ink-3);font-weight:600}
+    .main{padding:18px 20px}
+    .thead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+    .thead h4{margin:0;font-size:14px;font-weight:700;letter-spacing:-.01em}
+    .thead span{font-size:11.5px;color:var(--ink-3)}
+    table{width:100%;border-collapse:collapse;font-size:12.5px}
+    th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+      color:var(--ink-3);padding:8px 10px;border-bottom:1px solid var(--line)}
+    td{padding:9px 10px;border-bottom:1px solid var(--line);color:var(--ink-2);font-variant-numeric:tabular-nums}
+    td b{color:var(--ink);font-weight:600}
+    .st{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:650;border-radius:999px;padding:3px 9px}
+    .st.qualified{color:var(--ok);background:#e7f5f2}
+    .st.thesis{color:var(--indigo-deep);background:var(--indigo-tint)}
+    .st.researching{color:var(--warn);background:#fdf3e3}
+    section{padding:62px 0;border-bottom:1px solid var(--line)}
+    .sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:26px}
+    .sh h2{margin:0;font-size:23px;font-weight:750;letter-spacing:-.025em;color:var(--ink)}
+    .sh p{margin:0;font-size:13px;color:var(--ink-3)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;min-height:165px}
+    .card:hover{box-shadow:var(--ring);border-color:var(--indigo)}
+    .card .k{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--indigo)}
+    .card h3{margin:11px 0 7px;font-size:16px;font-weight:700;letter-spacing:-.015em}
+    .card p{margin:0;font-size:13px;color:var(--ink-2)}
+    .laws{border-left:3px solid var(--indigo);background:var(--indigo-tint);border-radius:0 12px 12px 0;
+      padding:16px 20px;font-size:14px;color:var(--ink-2);margin-top:24px}
+    .laws b{color:var(--ink)}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+    .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+    .kpi b{display:block;font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+    .kpi span{display:block;margin-top:4px;font-size:12px;color:var(--ink-3)}
+    footer{padding:36px 0 56px;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a:hover{color:var(--indigo)}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}.shell{grid-template-columns:1fr}.sidenav{display:none}.kpis{grid-template-columns:1fr 1fr}.navlinks{display:none}}
   </style>
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="../../"><span class="brand-mark">N</span><span>NIKOLA STOJANOW</span></a>
-      <div class="nav-links"><a href="../../#work">Work</a><a href="../">Projects</a><a href="../../#research">Research</a><a href="../../#speaking">Speaking</a><a href="../../#about">About</a></div>
-      <a class="nav-cta" href="../../#contact">Start a conversation ↗</a>
-    </nav>
-    <main>
-      <section class="projects-hero">
-        <div class="mini-label">Project / Intelligence-to-opportunity infrastructure</div>
-        <div class="status live" style="margin-top:14px">Alpha · deployed</div>
-        <h1>Alleadz</h1>
-        <p>An operating system that turns a change in the world into a specific, evidence-linked commercial opportunity. It imports target accounts, resolves entities, watches for real signals, scores fit against a mandate twin with a deterministic rubric, drafts a nine-section thesis where every material claim is either cited to evidence or explicitly labeled a hypothesis — and prepares outreach that never sends without a human approval bound to a frozen content snapshot.</p>
-        <div class="actions"><a class="button" href="https://alleadz.onrender.com" target="_blank" rel="noreferrer">Open the live alpha ↗</a><a class="button secondary" href="../">All projects</a></div>
-        <div class="stat-row">
-          <div class="proof"><strong>40</strong><span>automated server checks across 7 gated phases</span></div>
-          <div class="proof"><strong>16</strong><span>acceptance gates (A01–A16), all proven by tests</span></div>
-          <div class="proof"><strong>29</strong><span>tables with row-level security, tenant-isolated by law</span></div>
-          <div class="proof"><strong>0</strong><span>emails sent without a human approval — by design</span></div>
+  <nav><div class="wrap nav">
+    <a class="wordmark" href="../../"><span class="ring"></span>ALLEADZ</a>
+    <div class="navlinks"><a href="#product">Product</a><a href="#laws">Laws</a><a href="#ops">Operations</a></div>
+    <a class="nav-cta" href="https://alleadz.onrender.com" target="_blank" rel="noreferrer">Open the alpha ↗</a>
+  </div></nav>
+  <main>
+    <header><div class="wrap">
+      <span class="crumb">Intelligence-to-opportunity infrastructure<span class="pill"><i></i>Alpha · deployed</span></span>
+      <h1>A change in the world becomes a qualified opportunity. With receipts.</h1>
+      <p class="lede">Alleadz watches for real signals, scores them against your mandate twin with a deterministic rubric, and writes a nine-section thesis where every material claim is <b>cited to evidence — or labeled a hypothesis.</b> Outreach never sends without a human approval bound to a frozen snapshot.</p>
+      <div class="ctas">
+        <a class="btn" href="https://alleadz.onrender.com" target="_blank" rel="noreferrer">Open the live alpha ↗</a>
+        <a class="btn ghost" href="../">All projects</a>
+      </div>
+      <div class="shell">
+        <div class="sidenav">
+          <div class="wm"><span class="ring"></span>ALLEADZ</div>
+          <span class="navitem on">Opportunities <span class="n">14</span></span>
+          <span class="navitem">Signals <span class="n">212</span></span>
+          <span class="navitem">Theses <span class="n">9</span></span>
+          <span class="navitem">Approvals <span class="n">3</span></span>
+          <span class="navitem">Evidence <span class="n">1,4k</span></span>
         </div>
-      </section>
-      <section>
-        <div class="section-head"><div><div class="mini-label">01 / The product</div><h2>Signal → thesis → approved outreach.</h2></div><p>Every stage is a hard gate; nothing skips evidence.</p></div>
-        <div class="stack">
-          <div class="feature"><span class="date">Foundation</span><h4>Multi-tenant, evidence-first</h4><p>Organisations carry immutable twin versions (mandate, markets, capabilities). Claims are typed assertions — sourced fact, user claim, inference, disputed — and inferences demand a written rationale.</p></div>
-          <div class="feature"><span class="date">Import</span><h4>CSV in, originals kept forever</h4><p>Preview → commit law: every row is retained raw with an error class and a research task for failures. Cross-tenant duplicates are flagged for a reviewer — the system never auto-merges.</p></div>
-          <div class="feature"><span class="date">Thesis engine</span><h4>Explainable scoring, no black box</h4><p>Five rubric dimensions (fit, trigger, timing, budget, access) roll up to priority and coverage. Hard checks run first: mandate overlap, geography, capability match, disqualifiers, procurement eligibility. Unknowns block qualification.</p></div>
-          <div class="feature"><span class="date">Opportunities</span><h4>Stage machine, server-enforced</h4><p>identified → researching → thesis_ready → human_reviewed → qualifying → qualified → handed_off. Every transition is validated, audited, and gated on thesis quality — an unevidenced opportunity cannot reach qualified.</p></div>
-          <div class="feature"><span class="date">Discovery</span><h4>Bounded collection</h4><p>Fetches are capped (2 MB, 15 s, 3 attempts, 10 URLs/run), SSRF-guarded, content-hash snapshotted, and stripped to an extraction allowlist — injected script content never survives into the reasoning layer.</p></div>
-          <div class="feature"><span class="date">Outreach</span><h4>Approve → bind → export. Never auto-send.</h4><p>An approver binds a frozen recipient + content snapshot. Any edit revokes. Approval expires. Export only emits what a live approval covers — a human presses send, always.</p></div>
+        <div class="main">
+          <div class="thead"><h4>Opportunities — GPU compute sector</h4><span>demo tenant · deterministic rubric v3</span></div>
+          <table>
+            <tr><th>Target</th><th>Signal</th><th>Priority</th><th>Stage</th></tr>
+            <tr><td><b>Eurora Computing OÜ</b></td><td>estate sale · assets listed</td><td>92 / 100</td><td><span class="st qualified">qualified</span></td></tr>
+            <tr><td><b>3CLogic-class SaaS</b></td><td>delisting risk · §363 window</td><td>81 / 100</td><td><span class="st thesis">thesis_ready</span></td></tr>
+            <tr><td><b>Gulf datacenter op</b></td><td>capex squeeze · quieter runway</td><td>67 / 100</td><td><span class="st researching">researching</span></td></tr>
+          </table>
         </div>
-      </section>
-      <section>
-        <div class="section-head"><div><div class="mini-label">02 / The laws</div><h2>Honesty is enforced, not aspirational.</h2></div><p>The rules tests fail on.</p></div>
-        <div class="stack">
-          <div class="feature"><span class="date">Evidence law</span><h4>Cite or label it a hypothesis</h4><p>Thesis sections are validated: every material assertion either references a claim ID or begins with an explicit "Hypothesis:" frame. Uncited facts are rejected at write time (A05).</p></div>
-          <div class="feature"><span class="date">Contact law</span><h4>Published ≠ deliverable</h4><p>Emails carry a class (person/company published, third-party reported, functional inbox, not found) separate from deliverability. Outreach to unknown contacts is structurally impossible (A09).</p></div>
-          <div class="feature"><span class="date">Isolation law</span><h4>Deny by default, proven hostile</h4><p>Postgres RLS with FORCE on every tenant table; transactions set tenant + user GUCs per statement. Tests prove a foreign tenant's token reads zero rows and cannot mutate (A01–A03). The test harness itself connects through a least-privilege role so superuser RLS bypass cannot mask failures.</p></div>
-          <div class="feature"><span class="date">Handoff law</span><h4>Envelope with an allowlist</h4><p>Handoffs emit a versioned envelope (event id, correlation, payload hash, disclosure scope) whose payload is field-allowlisted — nothing beyond target, sector, stage and scores ever leaves the building (A15).</p></div>
-        </div>
-        <div class="law">The pilot gate is deliberately human: Alleadz ships with its demo tenant and hosted alpha, but first external outreach waits for a human decision on targets and message — the system is built to make that decision auditable, not to make it for you.</div>
-      </section>
-      <section>
-        <div class="section-head"><div><div class="mini-label">03 / Under the hood</div><h2>Built like infrastructure.</h2></div><p>Same engineering family as Sovereign Grid.</p></div>
-        <div class="stack">
-          <div class="feature"><span class="date">Stack</span><h4>Express · Postgres · React 19</h4><p>Modular-monolith server, zod-validated contracts, immutable thesis versions, append-only audit trail on every state change.</p></div>
-          <div class="feature"><span class="date">Quality</span><h4>40 server + 3 client checks</h4><p>Scratch-database test harness: real migrations, real RLS, per-file isolation, least-privilege app role — the isolation law is tested, not assumed.</p></div>
-          <div class="feature"><span class="date">Operations</span><h4>Live on Render with a runbook</h4><p>Auto-deploy on push, health-checked, shared-database schema isolation documented with backup and expiry procedures in the ops runbook.</p></div>
-          <div class="feature"><span class="date">Next</span><h4>Sector packs & portfolio depth</h4><p>Packs (GPU rental, hardware, AI colocation, gov data infrastructure) are already configuration, not code. Next: portfolio analytics depth and discovery adapter growth behind the same caps.</p></div>
-        </div>
-      </section>
-    </main>
-    <footer><div><div class="footer-name">Nikola Stojanow</div><div>Frontier Systems Architect</div></div><div><a href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com</a></div><div><a href="../../">nikolastojanow.com</a><br>© 2026</div></footer>
-  </div>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><b>40</b><span>server checks across 7 gated phases</span></div>
+        <div class="kpi"><b>16</b><span>acceptance gates (A01–A16), test-proven</span></div>
+        <div class="kpi"><b>29</b><span>tables under forced row-level security</span></div>
+        <div class="kpi"><b>0</b><span>outbound messages without human approval</span></div>
+      </div>
+    </div></header>
+
+    <section id="product"><div class="wrap">
+      <div class="sh"><h2>Signal → thesis → approved outreach.</h2><p>every stage is a hard gate</p></div>
+      <div class="grid">
+        <div class="card"><span class="k">Import</span><h3>CSV in, originals kept forever</h3><p>Preview → commit law: every raw row retained with an error class and a research task on failure. The system never auto-merges duplicates.</p></div>
+        <div class="card"><span class="k">Discovery</span><h3>Bounded collection</h3><p>Fetches capped (2 MB, 15 s, 10 URLs/run), SSRF-guarded, content-hash snapshotted, stripped to an extraction allowlist. Injected script never survives.</p></div>
+        <div class="card"><span class="k">Thesis engine</span><h3>Explainable scoring</h3><p>Five rubric dimensions — fit, trigger, timing, budget, access — roll up deterministically. Unknowns block qualification; nothing hides in a black box.</p></div>
+      </div>
+    </div></section>
+
+    <section id="laws"><div class="wrap">
+      <div class="sh"><h2>Honesty is enforced, not aspirational.</h2><p>the rules tests fail on</p></div>
+      <div class="grid">
+        <div class="card"><span class="k">Evidence law</span><h3>Cite or hypothesize</h3><p>Every material assertion references a claim ID or is explicitly framed "Hypothesis:". Uncited facts are rejected at write time (A05).</p></div>
+        <div class="card"><span class="k">Isolation law</span><h3>Deny by default</h3><p>Postgres RLS with FORCE on all 29 tenant tables. Tests prove a foreign tenant reads zero rows — through a least-privilege role, not superuser.</p></div>
+        <div class="card"><span class="k">Handoff law</span><h3>Allowlisted envelopes</h3><p>Versioned envelopes with payload hashes and disclosure scope. Only target, sector, stage and scores ever leave (A15).</p></div>
+      </div>
+      <div class="laws"><b>The pilot gate is deliberately human:</b> Alleadz ships with a hosted alpha, but first external outreach waits for a human decision on targets and message — built to make that decision auditable, not to make it for you.</div>
+    </div></section>
+
+    <section id="ops" style="border-bottom:none"><div class="wrap">
+      <div class="sh"><h2>Built like infrastructure.</h2><p>same engineering family as Sovereign Grid</p></div>
+      <div class="grid">
+        <div class="card"><span class="k">Stack</span><h3>Express · Postgres · React 19</h3><p>Modular monolith, zod-validated contracts, immutable thesis versions, append-only audit on every state change.</p></div>
+        <div class="card"><span class="k">Operations</span><h3>Live on Render, runbook in repo</h3><p>Auto-deploy on push, health-checked, shared-database schema isolation documented with backup and expiry procedures.</p></div>
+        <div class="card"><span class="k">Next</span><h3>Sector packs as configuration</h3><p>GPU rental, hardware, AI colocation, gov-data packs are config, not code. Next: portfolio analytics depth.</p></div>
+      </div>
+    </div></section>
+  </main>
+  <footer><div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span>© 2026 Nikola Stojanow</span>
+    <span><a href="https://alleadz.onrender.com" target="_blank" rel="noreferrer">alleadz.onrender.com ↗</a> · <a href="../../">nikolastojanow.com</a></span>
+  </div></footer>
 </body>
 </html>

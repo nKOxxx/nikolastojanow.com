@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sovereign Twin — sovereign-grade decision systems: see reality, read consequences, move first. A concept by Nikola Stojanow." />
+  <title>Sovereign Twin | Nikola Stojanow</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23101220'/%3E%3Ccircle cx='36' cy='50' r='13' fill='none' stroke='%23c9a227' stroke-width='6'/%3E%3Ccircle cx='64' cy='50' r='13' fill='none' stroke='%23c9a227' stroke-width='6' opacity='.5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#101220;--panel:#161a2c;--edge:rgba(201,162,39,.16);--hair:rgba(255,255,255,.07);
+      --t1:#efece2;--t2:#a8a99f;--t3:#6b6d66;--cu:#c9a227;--cu-hi:#e0bd45;--cu-dim:rgba(201,162,39,.1);
+      --twin:#7b8cff}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(ellipse 900px 480px at 85% -10%,rgba(123,140,255,.08),transparent 65%),
+      var(--bg);
+      color:var(--t2);font:400 15.5px/1.65 'IBM Plex Mono',ui-monospace,Menlo,monospace;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:9;background:rgba(16,18,32,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--edge)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .brand{font:500 13px 'IBM Plex Mono';letter-spacing:.24em;color:var(--t1);text-transform:uppercase}
+    .brand b{color:var(--cu);font-weight:500}
+    .navlinks{display:flex;gap:22px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
+    .navlinks a:hover{color:var(--cu)}
+    header{padding:96px 0 68px;border-bottom:1px solid var(--edge)}
+    .status{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--cu);border:1px solid var(--edge);padding:6px 14px;border-radius:999px}
+    .status i{width:7px;height:7px;border-radius:50%;background:var(--cu);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,.5)}55%{box-shadow:0 0 0 7px rgba(201,162,39,0)}}
+    h1{margin:30px 0 22px;font:400 clamp(42px,6.8vw,76px)/1.04 Fraunces,Georgia,serif;
+      letter-spacing:-.015em;color:var(--t1)}
+    h1 em{font-style:italic;color:var(--cu)}
+    .lede{max-width:620px;font-size:16px;line-height:1.75;color:var(--t2);margin:0 0 30px}
+    .lede b{color:var(--t1);font-weight:500}
+    .twword{color:var(--twin)}
+    .meta{display:flex;gap:26px;flex-wrap:wrap;font-size:12px;color:var(--t3);margin-bottom:34px}
+    .meta b{color:var(--t2);font-weight:500}
+    .cta{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--bg);
+      background:var(--cu);padding:12px 22px;font-weight:500}
+    .cta:hover{background:var(--cu-hi)}
+    .cta.ghost{background:transparent;color:var(--t1);border:1px solid var(--hair)}
+    /* twin diagram: reality ↔ model */
+    .diagram{margin:52px 0 0;border:1px solid var(--edge);background:var(--panel);padding:34px;position:relative;overflow:hidden}
+    .diagram::before{content:"";position:absolute;inset:0;opacity:.5;
+      background-image:linear-gradient(var(--hair) 1px,transparent 1px),linear-gradient(90deg,var(--hair) 1px,transparent 1px);
+      background-size:44px 44px}
+    .dg{position:relative;display:grid;grid-template-columns:1fr 90px 1fr;gap:14px;align-items:center}
+    .dg .node{border:1px solid var(--edge);padding:20px;background:rgba(16,18,32,.7)}
+    .dg .node h4{margin:0 0 6px;font:500 15px Fraunces,serif;color:var(--t1)}
+    .dg .node p{margin:0;font-size:11.5px;color:var(--t3);line-height:1.6}
+    .dg .node.world{border-left:2px solid var(--cu)}
+    .dg .node.twin{border-left:2px solid var(--twin)}
+    .dg .bridge{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--t3);text-align:center}
+    .dg .bridge .wire{width:100%;height:1px;background:linear-gradient(90deg,var(--cu),var(--twin));position:relative}
+    .dg .bridge .wire::after{content:"";position:absolute;right:-3px;top:-3px;border:4px solid transparent;border-left-color:var(--twin)}
+    .dg .bridge .wire.back::after{right:auto;left:-3px;border-left-color:transparent;border-right-color:var(--cu)}
+    section{padding:66px 0;border-bottom:1px solid var(--edge)}
+    .sh{margin-bottom:30px;max-width:640px}
+    .sh .no{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cu)}
+    .sh h2{margin:12px 0 10px;font:400 clamp(26px,4vw,38px)/1.15 Fraunces,serif;color:var(--t1)}
+    .sh h2 em{font-style:italic;color:var(--cu)}
+    .sh p{margin:0;font-size:13.5px;color:var(--t3);line-height:1.7}
+    .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .col{border-top:1px solid var(--edge);padding-top:18px}
+    .col h3{margin:0 0 9px;font:500 16.5px Fraunces,serif;color:var(--t1)}
+    .col p{margin:0;font-size:12.5px;line-height:1.7;color:var(--t2)}
+    .col .k{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cu)}
+    /* consequence ladder */
+    .ladder{margin-top:30px;border:1px solid var(--edge)}
+    .rung{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:16px 20px;border-bottom:1px solid var(--hair);align-items:baseline}
+    .rung:last-child{border-bottom:none}
+    .rung .t{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cu)}
+    .rung p{margin:0;font-size:12.5px;color:var(--t2);line-height:1.65}
+    .honest{border:1px solid var(--edge);background:var(--cu-dim);padding:22px 26px;margin-top:30px}
+    .honest b{color:var(--cu);font-weight:500}
+    .honest p{margin:0;font-size:13px;line-height:1.7;color:var(--t2)}
+    footer{padding:40px 0 60px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);
+      display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a:hover{color:var(--cu)}
+    @media(max-width:880px){.cols{grid-template-columns:1fr}.dg{grid-template-columns:1fr}.dg .bridge{flex-direction:row;padding:6px 0}.dg .bridge .wire{height:1px}}
+  </style>
+</head>
+<body>
+  <nav><div class="wrap nav">
+    <a class="brand" href="../../">Sovereign <b>Twin</b></a>
+    <div class="navlinks"><a href="#thesis">Thesis</a><a href="#system">System</a><a href="#status">Status</a></div>
+  </div></nav>
+  <main>
+    <header><div class="wrap">
+      <span class="status"><i></i>Concept · in design</span>
+      <h1>Institutions run on stale pictures of reality.<br><em>The twin fixes the picture.</em></h1>
+      <p class="lede">Sovereign Twin is a decision system for governments and sovereign funds: a <b>living model of a country's critical systems</b> — energy, logistics, compute, finance — that ingests reality continuously, simulates consequences before they happen, and tells the principal <b class="twword">what moves first</b>. Not a dashboard. A counterpart.</p>
+      <div class="meta">
+        <span>CLASS — <b>decision infrastructure</b></span>
+        <span>STAGE — <b>concept, spec phase</b></span>
+        <span>LINEAGE — <b>Sovereign Grid ops · agentic-institution thesis</b></span>
+      </div>
+      <a class="cta" href="mailto:hello@nikolastojanow.com?subject=Sovereign%20Twin">Inquire about the build</a>
+      <a class="cta ghost" href="../" style="margin-left:10px">All projects</a>
+      <div class="diagram">
+        <div class="dg">
+          <div class="node world"><h4>Reality</h4><p>Grid load, port throughput, compute prices, capital flows, regulatory moves — the raw state of the nation, ingested continuously with provenance.</p></div>
+          <div class="bridge"><span class="wire"></span>sense<span class="wire back"></span></div>
+          <div class="node twin"><h4>The Twin</h4><p>A calibrated model that runs counterfactuals: what does this decision cost in 6 months, where does the second-order effect land, who moves first.</p></div>
+        </div>
+      </div>
+    </div></header>
+
+    <section id="thesis"><div class="wrap">
+      <div class="sh"><span class="no">01 / Thesis</span>
+        <h2>Governments simulate <em>after</em> the decision. Markets simulate before.</h2>
+        <p>The asymmetry is the whole problem. A trading desk models a position a thousand ways before it ships; a ministry ships policy and discovers the consequences in the press. Sovereign Twin imports the market's discipline into the sovereign's office.</p>
+      </div>
+      <div class="cols">
+        <div class="col"><span class="k">See reality</span><h3>Perception with provenance</h3><p>Every input to the twin carries a source and a timestamp. No asserted states — a claim without provenance is treated as noise, the same law that governs KONTOR's markets.</p></div>
+        <div class="col"><span class="k">Read consequences</span><h3>Counterfactuals, graded</h3><p>Decisions are simulated across horizon ladders: 30 days, 6 months, 3 years. Each consequence carries its confidence and the assumptions it dies with.</p></div>
+        <div class="col"><span class="k">Move first</span><h3>Options, not answers</h3><p>The twin's output is a ranked option set with trigger conditions — built for principals who must commit before certainty exists.</p></div>
+      </div>
+    </div></section>
+
+    <section id="system"><div class="wrap">
+      <div class="sh"><span class="no">02 / System</span>
+        <h2>One twin, three <em>disciplines.</em></h2>
+        <p>The concept stands on engineering law already proven in the portfolio — nothing here is invented from scratch.</p>
+      </div>
+      <div class="ladder">
+        <div class="rung"><span class="t">Sensing</span><p>Sovereign Grid's market-intel engine (indicative → quoted → transacted) generalized to sovereign data: every number in the twin is a price, a measurement, or a document — never a vibe.</p></div>
+        <div class="rung"><span class="t">Honesty</span><p>Alleadz's claim law: cite or label it a hypothesis. The twin's briefs are audit artifacts — a minister can ask "why does the model believe this" and receive an evidence chain, not a shrug.</p></div>
+        <div class="rung"><span class="t">Agency</span><p>KONTOR's mandate law: the twin advises; it never acts. Options carry dual-signature gates. The machine that models the state does not hold the state's pen.</p></div>
+      </div>
+      <div class="honest">
+        <p><b>Honest status:</b> this is a concept — a designed thesis, not a product. No code exists yet. The design law above is inherited from systems that do exist and run: Sovereign Grid (live), Alleadz (alpha), KONTOR (on-chain E2E). The next step is a paid-spec engagement, not a promise.</p>
+      </div>
+    </div></section>
+
+    <section id="status" style="border-bottom:none"><div class="wrap">
+      <div class="sh"><span class="no">03 / Status</span>
+        <h2>What exists, what's <em>next.</em></h2>
+        <p>Last updated 2026-09-30.</p>
+      </div>
+      <div class="ladder">
+        <div class="rung"><span class="t">Exists</span><p>The thesis, this design language, and the three engineering laws — each proven in a shipped system listed above.</p></div>
+        <div class="rung"><span class="t">Next</span><p>Spec phase: domain selection (energy or compute first), data-rights architecture, and a 90-day calibration pilot on one real system.</p></div>
+        <div class="rung"><span class="t">Gate</span><p>No build until a principal commits a domain and a data mandate. The twin is sovereign-grade; that word means the access is earned, not scraped.</p></div>
+      </div>
+    </div></section>
+  </main>
+  <footer><div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span>© 2026 Nikola Stojanow</span>
+    <span><a href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com</a> · <a href="../../">nikolastojanow.com</a></span>
+  </div></footer>
+</body>
+</html>

@@ -3,92 +3,145 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sovereign Grid — a live B2B marketplace for GPU compute with a market-intel engine ingesting real pricing signals. Built by Nikola Stojanow." />
+  <meta name="description" content="Sovereign Grid — B2B marketplace for GPU compute: demand meets datacenter supply, priced by a market-intel engine on real signals. Built by Nikola Stojanow." />
   <title>Sovereign Grid | Nikola Stojanow</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230e0d09'/%3E%3Cpath d='M22 76V24h12l32 32V24h12v52H66L34 44v32z' fill='%23f2d32a'/%3E%3Ccircle cx='77' cy='23' r='7' fill='%23f2efe8'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0b'/%3E%3Cpath d='M20 78 L44 22 h14 L34 78 Z' fill='%233e8bff'/%3E%3Cpath d='M52 78 L76 22 h4 L56 78 Z' fill='%233e8bff' opacity='.45'/%3E%3C/svg%3E" />
   <style>
-    .status{display:inline-flex;width:fit-content;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:5px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)}
-    .status.live{border-color:rgba(242,211,42,.5);color:var(--acid)}
-    .status.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid)}
-    .projects-hero{padding:96px 0 64px;border-bottom:1px solid rgba(255,255,255,.09)}
-    .projects-hero h1{font-size:clamp(48px,7vw,96px);line-height:.88;letter-spacing:-.08em;margin:20px 0 26px;max-width:900px}
-    .projects-hero p{max-width:660px;color:#c1cbd0;font-size:19px;margin:0 0 26px}
-    section{padding:88px 0}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-    .shot{border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;background:#0a0f14;min-width:0}
-    .shot img{display:block;width:100%;height:auto}
-    .shot figcaption{padding:12px 16px;color:var(--dim);font-size:12px;border-top:1px solid rgba(255,255,255,.08)}
-    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:34px}
-    .proof{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);border-radius:16px;padding:15px}
-    .proof strong{display:block;font-size:28px;letter-spacing:-.04em;margin-bottom:4px}
-    .proof span{color:var(--muted);font-size:13px}
-    .feature{border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.04);padding:22px}
-    .feature h4{margin:10px 0 7px;font-size:20px;letter-spacing:-.035em}
-    .feature p{margin:0;color:var(--muted);font-size:14px}
-    .date{color:var(--dim);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
-    .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-    @media(max-width:920px){.split,.stat-row,.stack{grid-template-columns:1fr}}
+    :root{
+      --sg-canvas:#0a0a0b; --sg-surface:#131316; --sg-card:#1a1a1e; --sg-elevated:#23252b;
+      --sg-text-1:#f7f8f8; --sg-text-2:#d0d6e0; --sg-text-3:#8a8f98; --sg-text-4:#62666d;
+      --sg-accent:#3e8bff; --sg-accent-hover:#66a3ff; --sg-accent-dim:rgba(62,139,255,.14);
+      --sg-success:#10b981; --sg-success-dim:rgba(16,185,129,.14);
+      --sg-border:rgba(255,255,255,.07); --sg-max:1120px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--sg-canvas);color:var(--sg-text-2);
+      font:400 15px/1.55 Roobert,Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--sg-max);margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:20;background:rgba(10,10,11,.82);backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--sg-border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .brand{display:flex;align-items:center;gap:9px;font-weight:650;letter-spacing:-.01em;color:var(--sg-text-1);font-size:14.5px}
+    .brand svg{width:20px;height:20px}
+    .nav-links{display:flex;gap:22px;font-size:13px;color:var(--sg-text-3)}
+    .nav-links a:hover{color:var(--sg-text-1)}
+    .nav-cta{font-size:12.5px;font-weight:550;color:var(--sg-accent);border:1px solid rgba(62,139,255,.35);
+      padding:6px 12px;border-radius:8px}
+    .nav-cta:hover{background:var(--sg-accent-dim)}
+    header{padding:88px 0 64px;border-bottom:1px solid var(--sg-border)}
+    .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:550;color:var(--sg-text-3);
+      border:1px solid var(--sg-border);background:var(--sg-surface);border-radius:999px;padding:5px 12px}
+    .badge i{width:7px;height:7px;border-radius:50%;background:var(--sg-success);box-shadow:0 0 10px var(--sg-success)}
+    h1{margin:22px 0 20px;font-size:clamp(40px,6.4vw,72px);line-height:1.02;letter-spacing:-.035em;
+      font-weight:650;color:var(--sg-text-1)}
+    h1 em{font-style:normal;color:var(--sg-accent)}
+    .lede{max-width:640px;font-size:17px;color:var(--sg-text-3);margin:0 0 28px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:550;
+      padding:9px 16px;border-radius:8px;background:var(--sg-accent);color:#fff}
+    .btn:hover{background:var(--sg-accent-hover)}
+    .btn.ghost{background:var(--sg-card);color:var(--sg-text-1);border:1px solid var(--sg-border)}
+    section{padding:64px 0;border-bottom:1px solid var(--sg-border)}
+    .shead{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:26px}
+    .shead h2{font-size:24px;letter-spacing:-.02em;font-weight:650;color:var(--sg-text-1);margin:0}
+    .shead p{margin:0;font-size:13.5px;color:var(--sg-text-3)}
+    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--sg-border);
+      border:1px solid var(--sg-border);border-radius:12px;overflow:hidden}
+    .kpi>div{background:var(--sg-surface);padding:20px}
+    .kpi b{display:block;font-size:26px;font-weight:650;letter-spacing:-.02em;color:var(--sg-text-1);font-variant-numeric:tabular-nums}
+    .kpi span{display:block;margin-top:5px;font-size:12.5px;color:var(--sg-text-3)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .card{background:var(--sg-card);border:1px solid var(--sg-border);border-radius:12px;padding:20px;min-height:170px;
+      display:flex;flex-direction:column;transition:border-color .15s ease,background .15s ease}
+    .card:hover{border-color:rgba(62,139,255,.4);background:var(--sg-elevated)}
+    .card .tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sg-accent)}
+    .card h3{margin:12px 0 8px;font-size:17px;font-weight:600;letter-spacing:-.015em;color:var(--sg-text-1)}
+    .card p{margin:0;font-size:13.5px;color:var(--sg-text-3)}
+    .wire{margin-top:26px;border:1px solid var(--sg-border);border-radius:12px;background:var(--sg-surface);overflow:hidden}
+    .wire .bar{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid var(--sg-border)}
+    .wire .bar i{width:9px;height:9px;border-radius:50%;background:var(--sg-elevated)}
+    .wire pre{margin:0;padding:16px 18px;font:400 12.5px/1.75 ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;color:var(--sg-text-3);overflow-x:auto}
+    .wire .k{color:var(--sg-accent)} .wire .g{color:var(--sg-success)} .wire .w{color:var(--sg-text-1)}
+    .price-t{width:100%;border-collapse:collapse;margin-top:26px;font-size:13px}
+    .price-t caption{text-align:left;font-size:12px;color:var(--sg-text-4);padding-bottom:8px}
+    .price-t th{text-align:left;font-weight:550;color:var(--sg-text-3);font-size:11.5px;letter-spacing:.08em;
+      text-transform:uppercase;padding:9px 12px;border-bottom:1px solid var(--sg-border)}
+    .price-t td{padding:10px 12px;border-bottom:1px solid var(--sg-border);color:var(--sg-text-2);font-variant-numeric:tabular-nums}
+    .price-t td:last-child{color:var(--sg-success);font-weight:600}
+    footer{padding:40px 0 60px;color:var(--sg-text-4);font-size:12.5px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    footer a{color:var(--sg-text-3)} footer a:hover{color:var(--sg-text-1)}
+    @media(max-width:900px){.cards,.kpi{grid-template-columns:1fr 1fr}.nav-links{display:none}}
+    @media(max-width:560px){.cards,.kpi{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="../../"><span class="brand-mark">N</span><span>NIKOLA STOJANOW</span></a>
-      <div class="nav-links"><a href="../../#work">Work</a><a href="../">Projects</a><a href="../../#research">Research</a><a href="../../#speaking">Speaking</a><a href="../../#about">About</a></div>
-      <a class="nav-cta" href="../../#contact">Start a conversation ↗</a>
-    </nav>
-    <main>
-      <section class="projects-hero">
-        <div class="mini-label">Project / Compute market infrastructure</div>
-        <div class="status live" style="margin-top:14px">Live · v1 in production</div>
-        <h1>Sovereign Grid</h1>
-        <p>A business-to-business marketplace for GPU compute capacity. Buyers post demand, the matching engine filters by region, accelerator and price, and deals run directly between counterparties with an operator review gate on supply. A market-intel engine ingests real pricing signals from live sources into an indicative index — never a "live market price," always dated, evidence-specific observations.</p>
-        <div class="actions"><a class="button" href="https://sovereign-grid-o707.onrender.com" target="_blank" rel="noreferrer">Open the live marketplace ↗</a><a class="button secondary" href="../">All projects</a></div>
-        <div class="stat-row">
-          <div class="proof"><strong>16</strong><span>screens, one coherent dark design system</span></div>
-          <div class="proof"><strong>313</strong><span>automated checks across unit, integration and e2e</span></div>
-          <div class="proof"><strong>6h</strong><span>signal-ingest cadence from live market sources</span></div>
-          <div class="proof"><strong>3</strong><span>pricing levels: indicative, quoted, transacted</span></div>
-        </div>
-      </section>
-      <section>
-        <div class="section-head"><div><div class="mini-label">01 / The product</div><h2>A real marketplace loop.</h2></div><p>Everything below is running in production today — no mockups.</p></div>
-        <div class="stack">
-          <div class="feature"><span class="date">Demand side</span><h4>Post demand → ranked matches</h4><p>Buyers specify region, accelerator, and budget; the engine ranks datacenter supply against hard filters, then scores what survives.</p></div>
-          <div class="feature"><span class="date">Supply side</span><h4>Seller onboarding + review gate</h4><p>Providers submit listings that stay invisible until an operator approves them — supply quality is curated, not assumed.</p></div>
-          <div class="feature"><span class="date">Deal engine</span><h4>Buyer→seller deals, atomic accept</h4><p>Accept is a single atomic database operation: first accept wins, repeats are idempotent, and both parties are auto-linked into a deal room.</p></div>
-          <div class="feature"><span class="date">Market intel</span><h4>Signals, not vibes</h4><p>Live ingest from vast.ai (datacenter SKUs only) feeds a three-level index: indicative public pricing, quoted partner offers, and anonymized transacted deals.</p></div>
-        </div>
-      </section>
-      <section>
-        <div class="section-head"><div><div class="mini-label">02 / Screens</div><h2>Evidence, not decoration.</h2></div><p>Live captures from the production deployment.</p></div>
-        <div class="split">
-          <figure class="shot"><img src="assets/sg_final_home.png" alt="Sovereign Grid marketplace home" loading="lazy" /><figcaption>Marketplace home — live listings and indicative market index.</figcaption></figure>
-          <figure class="shot"><img src="assets/sg_final_matches.png" alt="Sovereign Grid match results" loading="lazy" /><figcaption>Match results — demand ranked against filtered supply with fee-transparent pricing.</figcaption></figure>
-        </div>
-      </section>
-      <section>
-        <div class="section-head"><div><div class="mini-label">03 / Under the hood</div><h2>Built like infrastructure.</h2></div><p>The unglamorous parts done properly.</p></div>
-        <div class="stack">
-          <div class="feature"><span class="date">Security</span><h4>Row-level security by default</h4><p>Postgres RLS on every table; public reads go through whitelisted security-definer views. Sellers can't see buyer identities; buyers can't see seller economics.</p></div>
-          <div class="feature"><span class="date">Integrity</span><h4>Audited state changes</h4><p>Listing approvals, deal transitions and observation inserts are append-only audited. Accept is a SECURITY DEFINER function — no torn state.</p></div>
-          <div class="feature"><span class="date">Quality</span><h4>313 checks, CI-enforced design law</h4><p>Unit + integration + e2e suites gate every deploy; a design-law test suite fails any screen that drifts from the token system.</p></div>
-          <div class="feature"><span class="date">Operations</span><h4>Zero-downtime deploys + DB watchdog</h4><p>Continuous deployment to Render with an automated daily database-expiry watchdog and one-command restore runbook.</p></div>
-        </div>
-      </section>
-      <section>
-        <div class="section-head"><div><div class="mini-label">04 / Roadmap</div><h2>Where this goes next.</h2></div><p>Shipped weekly; the moat compounds.</p></div>
-        <div class="stack">
-          <div class="feature"><span class="date">Shipped</span><h4>Signals pipeline (v1)</h4><p>vast.ai ingest live on a 6-hour cadence; family taxonomy for aggregation across H100/A100/H200/B200/GB200/L40S.</p></div>
-          <div class="feature"><span class="date">Next</span><h4>AWS + Azure reference pricing</h4><p>Both public pricing APIs verified reachable — hyperscaler reference rows will anchor the indicative index.</p></div>
-          <div class="feature"><span class="date">Next</span><h4>Transacted-level signal capture</h4><p>Closed deals auto-record anonymized observations — proprietary price discovery no scraped source can replicate.</p></div>
-          <div class="feature"><span class="date">Next</span><h4>Trust bundle</h4><p>Email verification, password reset, rate limiting and legal pages — clearing the path for first external counterparties.</p></div>
-        </div>
-      </section>
-    </main>
-    <footer><div><div class="footer-name">Nikola Stojanow</div><div>Frontier Systems Architect</div></div><div><a href="mailto:hello@nikolastojanow.com">hello@nikolastojanow.com</a></div><div><a href="../../">nikolastojanow.com</a><br>© 2026</div></footer>
-  </div>
+  <nav><div class="wrap nav-inner">
+    <a class="brand" href="../../"><svg viewBox="0 0 100 100"><path d="M20 78 L44 22 h14 L34 78 Z" fill="#3e8bff"/><path d="M52 78 L76 22 h4 L56 78 Z" fill="#3e8bff" opacity=".45"/></svg>Sovereign Grid</a>
+    <div class="nav-links"><a href="#product">Product</a><a href="#intel">Market intel</a><a href="#engineering">Engineering</a></div>
+    <a class="nav-cta" href="https://sovereign-grid-o707.onrender.com" target="_blank" rel="noreferrer">Open live ↗</a>
+  </div></nav>
+  <main>
+    <header><div class="wrap">
+      <span class="badge"><i></i>Live · v1 in production · 313 automated checks</span>
+      <h1>The price of compute, <em>priced by the market.</em></h1>
+      <p class="lede">Sovereign Grid is a B2B marketplace for GPU compute. Buyers post demand, datacenter supply answers, and a market-intel engine turns live pricing signals — indicative, quoted, transacted — into the number a deal actually closes at.</p>
+      <div class="actions">
+        <a class="btn" href="https://sovereign-grid-o707.onrender.com" target="_blank" rel="noreferrer">Open the live market ↗</a>
+        <a class="btn ghost" href="../">All projects</a>
+      </div>
+      <div class="kpi" style="margin-top:34px">
+        <div><b>313</b><span>automated checks, CI-gated</span></div>
+        <div><b>3</b><span>pricing levels captured live</span></div>
+        <div><b>93/90/87</b><span>golden allocation outcome ($/hr buyer prices)</span></div>
+        <div><b>6h</b><span>market-signal ingest cadence</span></div>
+      </div>
+    </div></header>
+
+    <section id="product"><div class="wrap">
+      <div class="shead"><h2>Demand meets supply, with a referee.</h2><p>Buyer → seller, operator review gate, deal engine.</p></div>
+      <div class="cards">
+        <div class="card"><span class="tag">Demand</span><h3>Buyers post real workloads</h3><p>HPC teams, AI labs and neoclouds state GPU class, window, and ceiling price. No RFQ theater — the mandate is the object.</p></div>
+        <div class="card"><span class="tag">Supply</span><h3>Datacenters list capacity</h3><p>Sellers publish listings with hard specs. The pipeline runs seller pool → hard filters → rank → golden allocation.</p></div>
+        <div class="card"><span class="tag">Clearing</span><h3>The Fee Engine prices it</h3><p>Listing prices become buyer prices with a platform fee and partner split — fee sensitivity and policy are live parameters, not vibes.</p></div>
+      </div>
+      <div class="wire"><div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="w">$</span> sovereign-grid --scenario falcon --allocate
+<span class="k">pool</span>      14 sellers → hard filters → 8 eligible
+<span class="k">rank</span>      Nordic H200 · MI300X · GulfGrid · (Ascend DQ'd — D15 verbatim)
+<span class="g">golden</span>    H200 $2.15→$3.31 · MI300X $1.85→$2.85 · GulfGrid $2.20→$3.38
+<span class="w">fee</span>       platform 0.08 · partner split live · policy: production</pre></div>
+    </div></section>
+
+    <section id="intel"><div class="wrap">
+      <div class="shead"><h2>A market-intel engine under the floor.</h2><p>Signals in, an index out.</p></div>
+      <div class="cards">
+        <div class="card"><span class="tag">Indicative</span><h3>Read the room</h3><p>Public ask prices harvested on a 6-hour cadence (vast.ai live today; AWS and Azure next) — the market's own noise, captured.</p></div>
+        <div class="card"><span class="tag">Quoted</span><h3>Read the book</h3><p>Real quotes from counterparties — where the actual market clears, not where banners wish it did.</p></div>
+        <div class="card"><span class="tag">Transacted</span><h3>Read the tape</h3><p>Closed deals feed back into the index. Every transaction makes the next price sharper.</p></div>
+      </div>
+      <table class="price-t">
+        <caption>Illustrative market-intel snapshot — GPU $/hr, indicative → transacted ladder</caption>
+        <tr><th>Class</th><th>Indicative</th><th>Quoted</th><th>Transacted (golden)</th></tr>
+        <tr><td>Nordic H200</td><td>$2.15</td><td>$2.98</td><td>$3.31</td></tr>
+        <tr><td>MI300X</td><td>$1.85</td><td>$2.52</td><td>$2.85</td></tr>
+        <tr><td>GulfGrid</td><td>$2.20</td><td>$3.05</td><td>$3.38</td></tr>
+      </table>
+    </div></section>
+
+    <section id="engineering" style="border-bottom:none"><div class="wrap">
+      <div class="shead"><h2>Built like it prices: with discipline.</h2><p>Design law, tests, and a security baseline.</p></div>
+      <div class="cards">
+        <div class="card"><span class="tag">Design law</span><h3>Tokens, not taste</h3><p>The product UI runs on a versioned token system (canvas ladder, Linear-school 4-tier text, azure accent). Guard tests fail CI on drift.</p></div>
+        <div class="card"><span class="tag">Verification</span><h3>313 checks, 4 floors</h3><p>106 server · 153 frontend vitest · 26 e2e · 6/6 golden replay — the golden outcome is replayable against production, self-cleaning.</p></div>
+        <div class="card"><span class="tag">Baseline</span><h3>Security-first</h3><p>18-point baseline, strict CSP, self-hosted fonts, session hardening. Deployed on Render, auto-deploy on push, health-checked.</p></div>
+      </div>
+    </div></section>
+  </main>
+  <footer><div class="wrap" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <span>© 2026 Nikola Stojanow</span>
+    <span><a href="https://sovereign-grid-o707.onrender.com" target="_blank" rel="noreferrer">Live product ↗</a> · <a href="../../">nikolastojanow.com</a></span>
+  </div></footer>
 </body>
 </html>
