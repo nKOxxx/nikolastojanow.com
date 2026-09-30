@@ -19,7 +19,7 @@ positioning. Press history (factual) is allowed.
 | `projects/sovereign-grid/` | Product `design/tokens.css` law: near-black ladder, azure `#3e8bff`, Linear-school data-dense | rebuilt `d95ded2` |
 | `projects/alleadz/` | Product `client/src/styles.css`: light paper `#f6f7fb`, indigo `#4338ca`, working-surface shell | rebuilt `d95ded2` |
 | `projects/kontor/` | `~/mach/site/` identity: near-black `#0c0e12`, chartreuse `#e8ff47`, Geist Mono | rebuilt `d95ded2` |
-| `projects/sovereign-twin/` | Concept page, own situation-room identity: indigo-black + copper `#c9a227`, Fraunces | created `d95ded2` |
+| `projects/sovereign-twin/` | User's Sovereign_Twin_Overview.html verbatim: ink/black + signal red `#ff334e`, Georgia serif, orbital hero, decision loop, control room, Reversal & Invalidation Engine | SHIPPED `80595a0` — replaced my invented copper concept page (which never existed as an approved design) |
 | `projects/gulfwatch/`, `projects/demoz/` | Still shared-template — need their own identities (ask user for originals if any) | TODO |
 | home `index.html`, `projects/index.html` | Personal brand: warm ink `#14120e`, cream `#f2efe8`, gold `#f2d32a` (user logo DNA) | current |
 
