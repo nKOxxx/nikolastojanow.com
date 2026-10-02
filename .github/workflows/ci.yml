@@ -1,0 +1,67 @@
+# Portfolio CI — static-site sanity under the DoD law (tests green in CI on main)
+# Generated from github-actions-cicd skill template static-site-ci.yml (2026-10-02)
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          persist-credentials: false
+
+      - name: Hub + all project pages exist
+        run: |
+          test -f index.html
+          test -f DESIGN_LAW.md
+          for p in alleadz gulfwatch kontor nybls sovereign-grid sovereign-twin; do
+            test -f "projects/$p/index.html" || { echo "MISSING: projects/$p/index.html"; exit 1; }
+          done
+          echo "hub + 6 project pages present"
+
+      - name: No dead internal links (href/src → local files)
+        run: |
+          set -e
+          status=0
+          while IFS= read -r -d '' f; do
+            dir=$(dirname "$f")
+            grep -oE '(href|src)="[^"#]+"#' "$f" >/dev/null 2>&1 || true
+            links=$(grep -oE '(href|src)="[^"#]+"' "$f" | sed -E 's/^(href|src)="//; s/"$//' | grep -vE '^(https?:|mailto:|data:|//)' || true)
+            for link in $links; do
+              # strip query strings
+              clean="${link%%\?*}"
+              if [ ! -e "$dir/$clean" ] && [ ! -e "$clean" ]; then
+                echo "DEAD: $f -> $link"
+                status=1
+              fi
+            done
+          done < <(find . -name '*.html' -print0)
+          exit $status
+
+      - name: Every project page links back to hub
+        run: |
+          status=0
+          for f in projects/*/index.html; do
+            grep -q 'nikolastojanow.com\|\.\./\.\./index.html\|href="../../"' "$f" || { echo "NO BACKLINK: $f"; status=1; }
+          done
+          exit $status
+
+      - name: No TODO/FIXME markers shipped
+        run: |
+          if grep -rn 'TODO\|FIXME' --include='*.html' .; then
+            echo "unfinished markers in shipped HTML"; exit 1
+          fi
