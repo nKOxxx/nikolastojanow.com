@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GulfWatch — MENA security monitor</title>
+<meta name="description" content="Real-time Middle East geopolitical intelligence: conflict signals, early warning, escalation risk.">
+<style>
+/* == palette: 9 cool grays (blue-saturated, rule 13) + 1 accent =================== */
+:root{
+ --g0:#0b0f14;--g1:#10161d;--g2:#151d26;--g3:#1c2632;--g4:#243141;
+ --g5:#33445a;--g6:#4f6a8c;--g7:#7d99b8;--g8:#b8cbdd;--g9:#e4edf6;
+ --amber:#f5a623;--amber-deep:#8a5b0a;
+ --sev-hi-bg:#3a1220;--sev-hi-tx:#ff7a90;
+ --sev-md-bg:#332211;--sev-md-tx:#f0b45a;
+ --sev-lo-bg:#12291f;--sev-lo-tx:#5fd39a;
+ --line:rgba(150,190,235,.10);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--g0);color:var(--g9);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:auto;padding:0 28px}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:700}
+/* nav on background, not a bar; 1px hairline at low opacity [rule 3] */
+.nav{position:fixed;inset:0 0 auto;z-index:9;background:linear-gradient(180deg,rgba(11,15,20,.95),rgba(11,15,20,.6),transparent);backdrop-filter:blur(8px)}
+.navin{height:70px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:750;letter-spacing:.03em}
+.brand b{color:var(--amber)}
+.navlinks{display:flex;gap:26px;color:var(--g7);font-size:13px}
+.back{border:1px solid var(--line);padding:8px 14px;color:var(--g8)}
+/* hero: text sits on treated gradient (not raw photo) [rule 1] */
+.hero{padding:170px 0 90px;background:
+ radial-gradient(1000px 480px at 78% -10%,rgba(245,166,35,.10),transparent 60%),
+ radial-gradient(900px 500px at 12% 8%,rgba(63,110,171,.16),transparent 62%)}
+.hero h1{font-size:clamp(2.6rem,5vw,4.4rem);line-height:1.04;letter-spacing:-.03em;font-weight:650;max-width:820px;margin:16px 0 20px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.lede{color:var(--g8);max-width:640px;font-size:17px}
+/* stat strip = tabular numerals, right-aligned [rule 10] */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:54px;background:var(--g1)}
+.stat{padding:20px 22px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat small{display:block;color:var(--g6);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.stat b{font-size:26px;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.stat b i{font-style:normal;font-size:13px;color:var(--g7);margin-left:6px}
+/* section separation by background color, not borders [rule 12] */
+.feed{background:var(--g1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
+section{padding:72px 0}
+h2{font-size:26px;font-weight:650;letter-spacing:-.02em;margin:12px 0 8px}
+.sub{color:var(--g7);max-width:560px;margin-bottom:30px}
+/* incident rows: severity pill = soft bg + tinted dark text [rule 11] */
+.incidents{border:1px solid var(--line);background:var(--g2)}
+.irow{display:grid;grid-template-columns:110px 1fr 170px 110px;gap:18px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);font-size:14px}
+.irow:last-child{border-bottom:0}
+.irow:hover{background:var(--g3)}
+.time{color:var(--g6);font-variant-numeric:tabular-nums}
+.sev{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:3px;justify-self:start}
+.sev.hi{background:var(--sev-hi-bg);color:var(--sev-hi-tx)}
+.sev.md{background:var(--sev-md-bg);color:var(--sev-md-tx)}
+.sev.lo{background:var(--sev-lo-bg);color:var(--sev-lo-tx)}
+.ctr{color:var(--g8)}
+/* shadow ladder: this panel = mid elevation [rule 9b] */
+.panel{border:1px solid var(--g4);background:linear-gradient(170deg,var(--g2),var(--g1));box-shadow:0 2px 4px rgba(0,0,0,.4),0 16px 40px rgba(0,0,0,.45)}
+/* capabilities: cards, distinct from feed bg [rule 12] */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cap{border:1px solid var(--line);background:var(--g2);padding:26px;transition:border-color .18s ease,transform .18s ease}
+.cap:hover{border-color:var(--g5);transform:translateY(-1px)}
+.cap h3{font-size:15px;font-weight:650;margin:14px 0 8px}
+.cap p{color:var(--g7);font-size:13.5px}
+.cap .n{color:var(--amber);font-size:13px;font-weight:700;letter-spacing:.08em}
+/* live band = brand color section [rule 12], text de-emphasized toward bg hue [rule 4] */
+.live{background:linear-gradient(120deg,#101a12,#0d1a15);border:1px solid #1e3a2a;padding:40px 44px;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center;margin-top:56px}
+.live h3{font-size:22px;font-weight:650;margin-bottom:8px}
+.live p{color:#9fbfa9;font-size:14.5px}
+.pulse{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7ee2a8;font-weight:700}
+.pulse i{width:9px;height:9px;border-radius:50%;background:#41d98d;box-shadow:0 0 14px #41d98d;animation:pl 2.2s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.35}}
+/* stack strip */
+.stack{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin-top:64px;color:var(--g7);font-size:13.5px}
+.stack b{color:var(--amber);font-weight:650}
+footer{padding:30px 0;color:var(--g6);font-size:12.5px}
+.footin{display:flex;justify-content:space-between}
+.footin a{color:var(--g8);border-bottom:1px solid var(--line)}
+@media(max-width:900px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.irow{grid-template-columns:80px 1fr;row-gap:6px}.ctr,.sev{display:none}.caps{grid-template-columns:1fr}.live{grid-template-columns:1fr}.navlinks a:not(.back){display:none}.stack{grid-template-columns:1fr 1fr;gap:14px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap navin">
+ <a class="brand" href="#">Gulf<b>Watch</b></a>
+ <div class="navlinks"><a href="#feed">Live feed</a><a href="#caps">Capabilities</a><a class="back" href="https://nikolastojanow.com">← nikolastojanow.com</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+ <div class="eyebrow">MENA security monitor · early warning</div>
+ <h1>Conflict signals, detected while they are still <em>patterns</em> — not headlines.</h1>
+ <p class="lede">GulfWatch tracks incidents, escalation risk and market impact across the Middle East in real time, built for institutional decision-makers who need hours of lead time, not recaps.</p>
+ <div class="stats panel">
+  <div class="stat"><small>Monitored sources</small><b>140<i>live</i></b></div>
+  <div class="stat"><small>Signals / day</small><b>2,300<i>median</i></b></div>
+  <div class="stat"><small>Alert latency</small><b>&lt; 5<i>min</i></b></div>
+  <div class="stat"><small>Coverage</small><b>6<i>GCC + Levant</i></b></div>
+ </div>
+</div></header>
+
+<section class="feed" id="feed"><div class="wrap">
+ <div class="eyebrow">Live incident feed</div>
+ <h2>What the monitor is seeing now</h2>
+ <p class="sub">Representative view of the incident stream — each signal is source-stamped, severity-scored and linked to market impact.</p>
+ <div class="incidents panel">
+  <div class="irow"><span class="time">09:42 UTC</span><span class="ctr">Strait transit disruption — shipping lane advisory</span><span>Escalation index ↑ 2.1σ</span><span class="sev hi">High</span></div>
+  <div class="irow"><span class="time">08:15 UTC</span><span class="ctr">Airspace closure notice — regional corridor</span><span>Routing +14 min avg</span><span class="sev md">Med</span></div>
+  <div class="irow"><span class="time">06:03 UTC</span><span class="ctr">Naval exercise announcement — bulk carrier rerouting</span><span>Freight premium +3%</span><span class="sev md">Med</span></div>
+  <div class="irow"><span class="time">04:47 UTC</span><span class="ctr">Diplomatic channel reopening — bilateral talks</span><span>Risk premium −1.8%</span><span class="sev lo">Low</span></div>
+  <div class="irow"><span class="time">02:20 UTC</span><span class="ctr">Border incident report — verified second source</span><span>Monitoring</span><span class="sev hi">High</span></div>
+ </div>
+ <div class="live">
+  <div>
+   <h3>Signals become alerts before they become news.</h3>
+   <p>Cross-source verification, severity scoring and market-impact estimation run on every incident. Delivery lands in your channel of choice with the evidence attached.</p>
+  </div>
+  <div class="pulse"><i></i> Monitor live · feed healthy</div>
+ </div>
+</div></section>
+
+<section id="caps"><div class="wrap">
+ <div class="eyebrow">Capabilities</div>
+ <h2>Built for the decision, not the dashboard</h2>
+ <p class="sub">Three modules, one evidence chain: detection, scoring, delivery.</p>
+ <div class="caps">
+  <div class="cap"><span class="n">01</span><h3>Detection</h3><p>Continuous monitoring across newswires, flight tracks, shipping lanes and official channels. Source-stamped within minutes.</p></div>
+  <div class="cap"><span class="n">02</span><h3>Scoring</h3><p>Deterministic severity and escalation indexing. Every score ships with its inputs, so analysts can audit the number.</p></div>
+  <div class="cap"><span class="n">03</span><h3>Delivery</h3><p>Alerts with evidence attached — impact estimates, confidence, and the contradicting signals, straight to your team's channel.</p></div>
+ </div>
+ <div class="stack">
+  <span><b>GulfWatch</b> sees the world</span><span><b>Alleadz</b> finds the move</span><span><b>Sovereign Twin</b> tests it</span><span><b>Sovereign Grid</b> makes it sovereign</span>
+ </div>
+</div></section>
+
+<footer><div class="wrap footin">
+ <span>GulfWatch — MENA security monitor</span>
+ <a href="https://nikolastojanow.com">Part of the Stojanow build ledger →</a>
+</div></footer>
+</body>
+</html>
